@@ -1,0 +1,25 @@
+# Environment
+.env
+
+# Article cache (large text files) and generated scores
+data/cache/*
+!data/cache/.gitkeep
+data/scores/*
+!data/scores/.gitkeep
+data/enriched_report.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
