@@ -1,0 +1,120 @@
+Content Performance Dashboard — Progress Tracker
+=================================================
+Last updated: 2026-02-26
+
+
+COMPLETED
+---------
+
+[SETUP]
+  ✓ Created standalone project directory: C:\Github\content-dashboard
+  ✓ Copied shared utilities from portal-copilots-content:
+      common/batch.py
+      common/knowledge_service.py
+      common/send_openai_request.py
+      common/prompts.py
+      common/resolve_include_files.py
+      common/token_provider.py
+      common/data_models/retrieval_models.py
+      common/prompts/question_generator_article.md
+  ✓ Copied AI Readiness grader:
+      project-content-improvement/analyze_content.py
+      project-content-improvement/prompts/prompt-shared-foundation.md
+      project-content-improvement/prompts/dimensions/ (10 dimension files)
+  ✓ Copied question generator:
+      project-question-ks-chunk-generator/main.py
+  ✓ Initialized git repo, added remote origin
+  ✓ Initial commit pushed to https://github.com/maggierui/content-dashboard-poc
+
+[PIPELINE]
+  ✓ pipeline/fetch_articles.py
+      - HTTP scraper for learn.microsoft.com pages
+      - BeautifulSoup extraction of <main> / #main-column
+      - URL-slug based caching to data/cache/
+      - Incremental (skips already-cached), --force flag to re-fetch
+      - Polite 0.5s delay between requests
+
+  ✓ pipeline/run_ai_readiness.py
+      - Calls analyze_dimensions() across all 10 RAG dimensions
+      - Direct mode (async) for ≤50 articles
+      - Batch API mode for >50 articles
+      - Band assignment: High (0-3 recs), Medium (4-8), Low (9+)
+      - Records weakest_dimension per article
+      - Incremental runs (skips already-scored URLs)
+      - Output: data/scores/ai_readiness_scores.json
+
+  ✓ pipeline/run_retrievability.py
+      - Step 2a: Generates 5 concise + 5 BM25 questions per article
+      - Step 2b: Saves questions checkpoint to data/scores/questions.json
+      - Step 2c: Queries Knowledge Service (ThreadPoolExecutor, batch=10)
+      - Step 2d: Calculates hit-rate score (0-100)
+      - Incremental runs (skips already-scored URLs)
+      - --skip-qgen flag to reuse existing questions checkpoint
+      - Output: data/scores/retrievability_scores.json
+
+  ✓ pipeline/merge_scores.py
+      - Left-joins AI Readiness + Retrievability onto original Power BI CSV
+      - Handles partial runs (null values for unscored articles)
+      - URL normalisation (trailing slash)
+      - Output: data/enriched_report.csv
+
+[DASHBOARD]
+  ✓ app.py — Three-tab Streamlit dashboard
+      - Tab 1: Filterable/sortable data table with progress-bar score columns
+        and download button
+      - Tab 2: Portfolio overview (donut chart, histogram, scatter plot,
+        priority quadrant table)
+      - Tab 3: Ask the Data — LLM chat with DataFrame context
+      - Sidebar filters: date range, group, topic type, AI Readiness band,
+        Retrievability slider
+
+[CONFIG & DOCUMENTATION]
+  ✓ requirements.txt
+  ✓ .env.example
+  ✓ .gitignore (data/cache and data/scores excluded; .gitkeep placeholders tracked)
+  ✓ README.md
+  ✓ docs/project-plan.md
+  ✓ docs/progress.txt (this file)
+  ✓ docs/implementation_plans/content-performance-dashboard.md
+
+
+IN PROGRESS
+-----------
+  (nothing currently active)
+
+
+NOT STARTED — REMAINING WORK
+-----------------------------
+
+[TESTING & VALIDATION]
+  - Smoke test: run fetch_articles.py on 5 real learn.microsoft.com URLs;
+    verify cache files are non-empty and readable
+  - Spot-check AI Readiness: pick 3 articles with known quality levels;
+    verify bands match editorial expectation
+  - Spot-check Retrievability: manually search one article's questions on
+    learn.microsoft.com; verify pipeline score matches manual result
+  - Dashboard smoke test: load a real enriched_report.csv; verify all 3 tabs
+    render, sidebar filters update the table, chat responds correctly
+  - Chat quality check: ask 5 questions (3 portfolio-level, 2 article-specific);
+    verify responses cite real numbers from the data
+
+[KNOWN GAPS / OPEN QUESTIONS]
+  - Band thresholds (0-3 High, 4-8 Medium, 9+ Low) are initial proposals;
+    need calibration after first full run against real articles
+  - Knowledge Service auth requires a Microsoft tenant identity via
+    DefaultAzureCredential; untested outside the internal network
+  - The Responses API used by analyze_content.py (client.responses.create)
+    is not available on GitHub Models or standard OpenAI — Azure OpenAI only
+  - No automated scheduling yet; pipeline re-runs are manual
+  - No alerting when scores drop between runs
+
+[FUTURE ENHANCEMENTS (out of scope for POC)]
+  - Delta detection: flag articles whose scores changed significantly since
+    the last run
+  - Drill-down view: per-article page showing all 10 dimension scores,
+    individual question results, and the full recommendation list
+  - Export to Power BI: write enriched_report.csv back to a SharePoint location
+    so the existing Power BI report can consume the new columns
+  - Scheduling: GitHub Action or Azure pipeline to re-run nightly
+  - Support for non-learn.microsoft.com URLs (internal docs, PDF content)
+  - Replace Azure OpenAI dependency with a model-agnostic abstraction layer
