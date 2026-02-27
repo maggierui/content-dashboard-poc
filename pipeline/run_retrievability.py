@@ -2,7 +2,8 @@
 run_retrievability.py - Generate questions per article then hit-test the Knowledge Service.
 
 Pipeline:
-  Step 2a: Generate 5 questions per article (direct or batch API)
+  Step 2a: Generate questions per article via concurrent direct API calls (default)
+           or Azure OpenAI Batch API (--batch, requires a Global Batch deployment)
   Step 2b: Save questions checkpoint → data/scores/questions.json
   Step 2c: Query Knowledge Service for each question
   Step 2d: Calculate hit-rate score (0–100)
@@ -10,6 +11,7 @@ Pipeline:
 Usage:
     python pipeline/run_retrievability.py --input data/sample_engagement.csv
     python pipeline/run_retrievability.py --input data/sample_engagement.csv --batch
+    python pipeline/run_retrievability.py --input data/sample_engagement.csv --skip-qgen
 """
 import argparse
 import json
@@ -107,31 +109,44 @@ def extract_url_path(url: str) -> str:
 def generate_questions_direct(
     urls: list[str],
     cache_dir: Path,
+    max_workers: int = 5,
 ) -> dict[str, list[str]]:
-    """Generate questions for each article using direct API calls."""
+    """Generate questions for each article using concurrent direct API calls.
+
+    Uses ThreadPoolExecutor so multiple articles are processed in parallel
+    while staying within typical Azure OpenAI rate limits.
+    """
     deployment = os.environ.get("DEPLOYMENT_NAME", "gpt-5-mini")
     prompt = load_prompt("question_generator_article")
     client = create_client()
+    total = len(urls)
 
-    questions: dict[str, list[str]] = {}
-
-    for i, url in enumerate(urls, 1):
+    def _process(idx_url: tuple[int, str]) -> tuple[str, list[str]]:
+        i, url = idx_url
         cache_file = find_cache_file(url, cache_dir)
         if cache_file is None:
-            print(f"  [{i}/{len(urls)}] SKIP (no cache)  {url}")
-            continue
+            print(f"  [{i}/{total}] SKIP (no cache)  {url}")
+            return url, []
         content = cache_file.read_text(encoding="utf-8")
         if not content.strip():
-            print(f"  [{i}/{len(urls)}] SKIP (empty)     {url}")
-            continue
-        print(f"  [{i}/{len(urls)}] Gen questions: {url}")
+            print(f"  [{i}/{total}] SKIP (empty)     {url}")
+            return url, []
+        print(f"  [{i}/{total}] Gen questions: {url}")
         try:
             response = send_response_request(deployment, prompt, content, "low", client=client)
             qs = parse_questions_from_response(response)
-            questions[url] = qs[:10]  # cap at 10 (5 concise + 5 BM25)
-            print(f"    → {len(qs)} questions")
+            qs = qs[:10]  # cap at 10 (5 concise + 5 BM25)
+            print(f"    → {len(qs)} questions for {url[:60]}...")
+            return url, qs
         except Exception as exc:
-            print(f"    Error: {exc}")
+            print(f"    Error for {url}: {exc}")
+            return url, []
+
+    questions: dict[str, list[str]] = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        for url, qs in executor.map(_process, enumerate(urls, 1)):
+            if qs:
+                questions[url] = qs
 
     return questions
 
@@ -287,7 +302,7 @@ def main() -> None:
     parser.add_argument("--output", default=str(OUTPUT_FILE),
                         help="Output JSON file path")
     parser.add_argument("--batch", action="store_true",
-                        help="Use Azure OpenAI Batch API for question generation")
+                        help="Use Azure OpenAI Batch API (requires a Global Batch deployment in Azure portal)")
     parser.add_argument("--skip-qgen", action="store_true",
                         help="Skip question generation (load from --questions-file)")
     args = parser.parse_args()
@@ -321,7 +336,7 @@ def main() -> None:
 
         remaining = [u for u in urls if u not in existing_questions]
         if remaining:
-            if args.batch or len(remaining) > 50:
+            if args.batch:
                 new_questions = generate_questions_batch(remaining, cache_dir)
             else:
                 new_questions = generate_questions_direct(remaining, cache_dir)

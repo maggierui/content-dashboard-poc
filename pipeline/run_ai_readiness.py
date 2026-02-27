@@ -2,10 +2,10 @@
 run_ai_readiness.py - Grade articles across 10 RAG-readiness dimensions.
 
 Usage:
-    # Direct (≤50 articles, async calls):
+    # Default (direct async calls, any number of articles):
     python pipeline/run_ai_readiness.py --input data/sample_engagement.csv
 
-    # Batch mode (>50 articles, Azure OpenAI Batch API):
+    # Batch mode (requires a Global Batch deployment in Azure OpenAI portal):
     python pipeline/run_ai_readiness.py --input data/sample_engagement.csv --batch
 
     # Re-score already-cached articles without re-fetching:
@@ -248,7 +248,7 @@ def main() -> None:
     parser.add_argument("--output", default=str(OUTPUT_FILE),
                         help="Output JSON file path")
     parser.add_argument("--batch", action="store_true",
-                        help="Use Azure OpenAI Batch API (for >50 articles)")
+                        help="Use Azure OpenAI Batch API (requires a Global Batch deployment in Azure portal)")
     args = parser.parse_args()
 
     df = pd.read_csv(args.input)
@@ -270,7 +270,7 @@ def main() -> None:
 
     cache_dir = Path(args.cache_dir)
 
-    if args.batch or len(urls) > 50:
+    if args.batch:
         final_scores = run_batch(urls, cache_dir, existing)
     else:
         final_scores = asyncio.run(run_direct(urls, cache_dir, existing))
