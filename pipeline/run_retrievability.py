@@ -209,20 +209,35 @@ def query_ks_for_article(
 ) -> dict:
     """
     Query KS for all questions of one article and compute hit-rate score.
-    Returns a retrievability result dict.
+
+    Each question result records 'chunks_returned' — if the KS returned 0
+    chunks the call likely failed silently (rate-limit, auth error, empty
+    response body).  These are counted in 'error_count' so callers can
+    distinguish genuine misses from silent failures.
     """
     question_results = []
     retrieved_count = 0
+    error_count = 0  # questions where KS returned 0 chunks (suspicious)
 
     for question in questions:
         try:
             chunks = process_single_question(question, top_k=TOP_K)
+            chunk_count = len(chunks)
             found = check_url_in_chunks(article_url, chunks)
         except Exception as exc:
-            print(f"    KS error for '{question}': {exc}")
+            print(f"    KS exception for '{question[:60]}': {exc}")
+            chunks = []
+            chunk_count = 0
             found = False
 
-        question_results.append({"text": question, "retrieved": found})
+        if chunk_count == 0:
+            error_count += 1  # 0 chunks returned is never normal for a live KS
+
+        question_results.append({
+            "text": question,
+            "retrieved": found,
+            "chunks_returned": chunk_count,
+        })
         if found:
             retrieved_count += 1
 
@@ -233,6 +248,7 @@ def query_ks_for_article(
         "score": score,
         "retrieved_count": retrieved_count,
         "total_questions": total_questions,
+        "error_count": error_count,   # >0 means some/all calls likely failed
         "questions": question_results,
     }
 
@@ -267,7 +283,9 @@ def query_all_articles_parallel(
                     score = results[url]["score"]
                     retrieved = results[url]["retrieved_count"]
                     total = results[url]["total_questions"]
-                    print(f"    {url[:80]}…  score={score} ({retrieved}/{total})")
+                    errors = results[url].get("error_count", 0)
+                    err_tag = f"  *** {errors} KS errors ***" if errors else ""
+                    print(f"    {url[:80]}…  score={score} ({retrieved}/{total}){err_tag}")
                 except Exception as exc:
                     print(f"    Error for {url}: {exc}")
                     results[url] = {
@@ -305,6 +323,9 @@ def main() -> None:
                         help="Use Azure OpenAI Batch API (requires a Global Batch deployment in Azure portal)")
     parser.add_argument("--skip-qgen", action="store_true",
                         help="Skip question generation (load from --questions-file)")
+    parser.add_argument("--rescore-zeros", action="store_true",
+                        help="Re-score any article whose saved score is 0 "
+                             "(catches articles that silently failed due to KS errors)")
     args = parser.parse_args()
 
     df = pd.read_csv(args.input)
@@ -364,11 +385,18 @@ def main() -> None:
             existing_scores = json.load(f)
         print(f"  {len(existing_scores)} articles already scored")
 
-    to_score = {
-        url: qs
-        for url, qs in article_questions.items()
-        if url not in existing_scores
-    }
+    def _should_score(url: str) -> bool:
+        if url not in existing_scores:
+            return True
+        if args.rescore_zeros and existing_scores[url]["score"] == 0:
+            return True
+        return False
+
+    to_score = {url: qs for url, qs in article_questions.items() if _should_score(url)}
+    if args.rescore_zeros:
+        zeros = sum(1 for u in article_questions if u in existing_scores
+                    and existing_scores[u]["score"] == 0)
+        print(f"  --rescore-zeros: {zeros} zero-score articles will be re-run")
     print(f"  Articles to score: {len(to_score)}")
 
     new_scores = query_all_articles_parallel(to_score)
