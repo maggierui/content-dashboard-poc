@@ -33,10 +33,7 @@ sys.path.insert(0, str(GRADER_DIR))
 
 load_dotenv(ROOT / ".env")
 
-from project_content_improvement_shim import (  # local shim defined below
-    analyze_dimensions_for_content,
-    ALL_DIMENSIONS,
-)
+from analyze_content import analyze_dimensions as analyze_dimensions_for_content, ALL_DIMENSIONS
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 SCORES_DIR = ROOT / "data" / "scores"
@@ -80,8 +77,6 @@ async def score_article(
     content: str,
 ) -> dict:
     """Run all 10 dimensions for one article, return score dict."""
-    from project_content_improvement_shim import analyze_dimensions_for_content
-
     all_results = await analyze_dimensions_for_content(client, deployment, content, ALL_DIMENSIONS)
 
     by_dimension: dict[str, int] = {}
@@ -280,33 +275,6 @@ def main() -> None:
     )
     print(f"\nSaved {len(final_scores)} scores → {output_path}")
 
-
-# ── Shim module so this file can import analyze_content helpers ───────────────
-# (avoids circular import when analyze_content.py inserts its parent into path)
-def _install_grader_shim() -> None:
-    """
-    Create a thin Python module `project_content_improvement_shim` that
-    re-exports the functions we need from analyze_content.py.
-    This is needed because analyze_content.py does sys.path.insert(0, parent)
-    which would collide if we imported it directly from here.
-    """
-    import types
-
-    shim = types.ModuleType("project_content_improvement_shim")
-
-    # Temporarily push the grader dir so its relative imports work
-    _orig = sys.path.copy()
-    sys.path.insert(0, str(ROOT / "project-content-improvement"))
-    try:
-        import analyze_content as _ac
-        shim.analyze_dimensions_for_content = _ac.analyze_dimensions
-        shim.ALL_DIMENSIONS = _ac.ALL_DIMENSIONS
-        sys.modules["project_content_improvement_shim"] = shim
-    finally:
-        sys.path = _orig
-
-
-_install_grader_shim()
 
 if __name__ == "__main__":
     main()
