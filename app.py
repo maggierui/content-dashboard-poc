@@ -29,6 +29,7 @@ st.set_page_config(
 # ── Constants ─────────────────────────────────────────────────────────────────
 ENRICHED_CSV = ROOT / "data" / "enriched_report.csv"
 RETRIEVABILITY_JSON = ROOT / "data" / "scores" / "retrievability_scores.json"
+REPORTS_DIR = ROOT / "data" / "reports"
 
 BAND_COLORS = {
     "High": "#22c55e",    # green
@@ -61,6 +62,10 @@ def load_data() -> pd.DataFrame:
                 "AIReadiness_TotalRecs"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
+    # Show "—" for articles not yet retrievability-scored
+    for col in ["Retrievability_Retrieved", "Retrievability_Total"]:
+        if col in df.columns:
+            df[col] = df[col].fillna("—")
     # Parse date column if present
     for col in df.columns:
         if "date" in col.lower() or "Date" in col:
@@ -256,7 +261,7 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
             ]
 
     # Retrievability range
-    if "Retrievability" in df.columns:
+    if "Retrievability" in df.columns and df["Retrievability"].notna().any():
         retr_min = int(df["Retrievability"].dropna().min() or 0)
         retr_max = int(df["Retrievability"].dropna().max() or 100)
         if retr_min < retr_max:
@@ -294,11 +299,23 @@ def render_data_table(df: pd.DataFrame) -> None:
     sort_asc = st.checkbox("Ascending", value=False)
     display = display.sort_values(sort_col, ascending=sort_asc, na_position="last")
 
-    # Render with styled columns
-    # We render as markdown table for rich formatting
-    cols_to_show = [c for c in display.columns
-                    if c not in ("AIReadiness_WeakestDim", "AIReadiness_TotalRecs",
-                                 "Retrievability_Retrieved", "Retrievability_Total")]
+    # Add per-article AI Readiness report link column (local file path)
+    def make_report_url(url):
+        if pd.isna(url):
+            return None
+        slug = str(url).rstrip("/").replace("https://learn.microsoft.com/en-us/", "").replace("/", "_")
+        report_path = REPORTS_DIR / f"{slug}.html"
+        return str(report_path) if report_path.exists() else None
+
+    if "Url" in display.columns:
+        display = display.copy()
+        display["AIReadiness_Report"] = display["Url"].apply(make_report_url)
+
+    # Columns hidden from the main table (available via detail reports or tooltips)
+    HIDDEN_COLS = {
+        "AIReadiness_ByDimension",
+    }
+    cols_to_show = [c for c in display.columns if c not in HIDDEN_COLS]
 
     # Use st.dataframe with column config for richer display
     col_config = {}
@@ -306,34 +323,91 @@ def render_data_table(df: pd.DataFrame) -> None:
     if "AIReadiness" in display.columns:
         col_config["AIReadiness"] = st.column_config.TextColumn(
             "AI Readiness",
-            help="High = well-optimized, Medium = gaps exist, Low = significant issues",
+            help=(
+                "Band based on total editorial recommendations across 10 RAG-readiness "
+                "dimensions. High = 0–3 recs (well-optimized for AI retrieval), "
+                "Medium = 4–8 recs (gaps exist), Low = 9+ recs (significant retrieval issues)."
+            ),
+        )
+    if "AIReadiness_TotalRecs" in display.columns:
+        col_config["AIReadiness_TotalRecs"] = st.column_config.NumberColumn(
+            "Total Recs",
+            help=(
+                "Total count of improvement recommendations flagged across all 10 dimensions: "
+                "heading hierarchy, chunk autonomy, context completeness, entity normalization, "
+                "disambiguation, semantic density, structured data, query-answer alignment, "
+                "redundancy efficiency, and cross-section integrity."
+            ),
         )
     if "AIReadiness_WeakestDim" in display.columns:
         col_config["AIReadiness_WeakestDim"] = st.column_config.TextColumn(
             "Weakest Dimension",
-            help="Dimension with most recommendations",
+            help=(
+                "The dimension with the highest recommendation count — where improving this "
+                "article will have the greatest impact on AI retrieval quality."
+            ),
         )
     if "Retrievability" in display.columns:
         col_config["Retrievability"] = st.column_config.ProgressColumn(
             "Retrievability",
-            help="% of generated questions retrieved by Knowledge Service",
+            help=(
+                "% of test questions answered by the Knowledge Service returning this article "
+                "in its top-5 chunks. Score = (retrieved / 10 questions) × 100. "
+                "Blank = not yet scored."
+            ),
             min_value=0,
             max_value=100,
             format="%d%%",
         )
+    if "Retrievability_Retrieved" in display.columns:
+        col_config["Retrievability_Retrieved"] = st.column_config.NumberColumn(
+            "Retrieved",
+            help=(
+                "Number of test questions (out of 10) that successfully retrieved this article "
+                "from the Knowledge Service."
+            ),
+        )
+    if "Retrievability_Total" in display.columns:
+        col_config["Retrievability_Total"] = st.column_config.NumberColumn(
+            "Total Questions",
+            help=(
+                "Total test questions used (typically 10: 5 natural-language + "
+                "5 BM25 keyword variants)."
+            ),
+        )
 
     # Identify URL column for linking
     url_col = next(
-        (c for c in display.columns if "url" in c.lower()), None
+        (c for c in display.columns if c.lower() == "url"), None
     )
     if url_col:
         col_config[url_col] = st.column_config.LinkColumn(url_col)
 
+    if "AIReadiness_Report" in display.columns:
+        col_config["AIReadiness_Report"] = st.column_config.LinkColumn(
+            "AI Report",
+            help=(
+                "Open the full AI Readiness report for this article "
+                "(opens alongside VS Code Web)"
+            ),
+            display_text="Report \u2197",
+        )
+
+    if "Retrievability" in df.columns:
+        scored = df["Url"].loc[df["Retrievability"].notna()].nunique()
+        total = df["Url"].nunique()
+        pct = scored / total * 100 if total > 0 else 0
+        st.caption(
+            f"Retrievability scored: {scored}/{total} unique articles ({pct:.0f}%) "
+            "— blank cells = article not yet scored by the pipeline"
+        )
+
     st.dataframe(
-        display,
+        display[cols_to_show],
         column_config=col_config,
         use_container_width=True,
         height=600,
+        hide_index=True,
     )
 
     # Download button

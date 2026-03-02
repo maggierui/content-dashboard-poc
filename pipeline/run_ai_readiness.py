@@ -80,10 +80,12 @@ async def score_article(
     all_results = await analyze_dimensions_for_content(client, deployment, content, ALL_DIMENSIONS)
 
     by_dimension: dict[str, int] = {}
+    recommendations_by_dimension: dict[str, list] = {}
     for dim, result in all_results.items():
         data = result.get("data") or {}
         recs = data.get("recommendations", [])
         by_dimension[dim] = len(recs)
+        recommendations_by_dimension[dim] = recs
 
     total = sum(by_dimension.values())
     weakest = max(by_dimension, key=by_dimension.get) if by_dimension else ""
@@ -93,6 +95,7 @@ async def score_article(
         "total_recommendations": total,
         "weakest_dimension": weakest,
         "by_dimension": by_dimension,
+        "recommendations_by_dimension": recommendations_by_dimension,
     }
 
 

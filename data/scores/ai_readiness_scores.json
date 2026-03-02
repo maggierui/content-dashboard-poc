@@ -1,0 +1,4643 @@
+{
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/deployment-checklist": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 4,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/enterprise-brand-manager-policy": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-adaptive-cards": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 4,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/adaptive-card-dialog-box": {
+    "band": "Low",
+    "total_recommendations": 28,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 4,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 4,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-declarative-agents-add-skills": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 1,
+      "semantic_density": 1,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-declarative-agents-customize-behavior": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-declarative-agents-add-knowledge": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/knowledge-sources": {
+    "band": "Low",
+    "total_recommendations": 25,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-builder-add-knowledge": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 5,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/watermarks": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 0,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-365-overview": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 5,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-builder": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-builder-regional-availability": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/agent-handoff": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-agent-install": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 3,
+      "disambiguation": 4,
+      "semantic_density": 0,
+      "structured_data_utilization": 1,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-registry": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 4,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-settings": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 3,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-agents": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-overview": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 1,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/ecosystem": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/adaptive-card-edits": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 1,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/overview": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 4,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/connect-to-ai-subprocessor": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-api-plugins": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-requirements": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 3,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/app-builder-privacy-data-subject-request-faq": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 1,
+      "context_completeness": 4,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/custom-engine-agent-asynchronous-flow": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-best-practices": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 3,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/bring-agents-to-copilot": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 5,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-builder-build-agents": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-api-plugins-typespec": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-api-plugins-local-office-api": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 5,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 3
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-api-plugins-existing-api": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-api-plugins-new-api": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/m365-agents-sdk": {
+    "band": "Low",
+    "total_recommendations": 15,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/teams-ai-library": {
+    "band": "Low",
+    "total_recommendations": 14,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-message-extension-bot": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-connectors-with-people-data": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-mcp-plugins": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 6,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-your-first-connector": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 3,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-studio-experience": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-tool-comparison": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/code-interpreter": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/code-interpreter-security": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-columns-support-config": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-license-feature-overview": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-authentication": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 4,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-doc-generation": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-summarization": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 5,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-expert-qa": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-confirmation-prompts": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/connect-to-ai-models": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/connect-to-independent-model": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-connected-agent": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-file-upload-control": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 1,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/convert-declarative-agent": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-control-system/management-controls": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-control-system/measurement-reporting": {
+    "band": "Low",
+    "total_recommendations": 13,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 1,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-control-system/overview": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 0,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-control-system/security-governance": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-for-microsoft-365-admin": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/troubleshoot/microsoft-365-apps/copilot/copilot-missing-disabled-not-work-correctly": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 1,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-search-admin-experience": {
+    "band": "Low",
+    "total_recommendations": 27,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 4,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copy-agent-to-copilot-studio": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 5,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-career-coach": {
+    "band": "Low",
+    "total_recommendations": 12,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-corporate-communications": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-customer-insight": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-learning-coach": {
+    "band": "Low",
+    "total_recommendations": 14,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-meeting-coach": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-prompt-coach": {
+    "band": "Low",
+    "total_recommendations": 13,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-quiz-tutor": {
+    "band": "Low",
+    "total_recommendations": 14,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 0,
+      "disambiguation": 4,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-rfp-assistant": {
+    "band": "Low",
+    "total_recommendations": 12,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 0,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-scrum-assistant": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 5,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-text-translator": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 2,
+      "semantic_density": 4,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-writing-coach": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-idea-coach": {
+    "band": "Low",
+    "total_recommendations": 12,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 0,
+      "disambiguation": 1,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-template-interview-questions": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 4,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/create-deploy-agents-sdk": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-declarative-agents": {
+    "band": "Low",
+    "total_recommendations": 15,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 1,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/build-declarative-agents-typespec": {
+    "band": "Low",
+    "total_recommendations": 13,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-builder-tuned-models": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/openapi-document-guidance": {
+    "band": "Low",
+    "total_recommendations": 12,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 0,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/wordexcelppt-agents": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 3,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-reports": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/custom-engine-agent-architecture": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 0,
+      "disambiguation": 1,
+      "semantic_density": 3,
+      "structured_data_utilization": 1,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-custom-engine-agent": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-process": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 3,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/customize": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/data-privacy-security": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 1,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy": {
+    "band": "Low",
+    "total_recommendations": 25,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 4,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/manage-public-web-access": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api-plugin-debug-local": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/which-copilot-for-your-organization": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-architecture": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/transparency-faq-declarative-agent": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-lifecycle/agent-assign-deploy": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-lifecycle/agent-deploy": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 4,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/deploy-microsoft-365-copilot-app": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/design-best-practices": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-icon-management": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/emotional-quotient-ambiguity": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-extensibility": {
+    "band": "Low",
+    "total_recommendations": 34,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 4,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 6,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/deploy-overview-alm": {
+    "band": "Low",
+    "total_recommendations": 29,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 1,
+      "semantic_density": 5,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-enable-feedback": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/enterprise-brand-manager": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/enterprise-data-protection": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 3,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 0,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-prompt-gallery-export-prompts": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/": {
+    "band": "Low",
+    "total_recommendations": 12,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 0,
+      "structured_data_utilization": 1,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-business-applications": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 1,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/responsible-ai/responsible-ai-overview": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/responsible-ai/faq-app-builder": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/responsible-ai/copilot-tuning-responsible-ai-faq": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/responsible-ai/flow-builder-responsible-ai-faq": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/faq-deploy-microsoft-365-copilot-app": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/faq-opal": {
+    "band": "Low",
+    "total_recommendations": 14,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-e3-guide": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 0,
+      "semantic_density": 4,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-e5-guide": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/connector-admin-delegation": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-architecture": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/orchestrator": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "entity_normalization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/image-generator": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/people-skills-import-export-skills": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/install": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/sapsuccessfactors": {
+    "band": "Low",
+    "total_recommendations": 33,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 4,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 5,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 3
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/servicenow-hrsd-itsm": {
+    "band": "Low",
+    "total_recommendations": 32,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 4,
+      "context_completeness": 3,
+      "entity_normalization": 3,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/servicenow-live-agent": {
+    "band": "Low",
+    "total_recommendations": 27,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 4,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/servicenow": {
+    "band": "Low",
+    "total_recommendations": 28,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 3,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday": {
+    "band": "Low",
+    "total_recommendations": 35,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 3,
+      "context_completeness": 1,
+      "entity_normalization": 3,
+      "disambiguation": 5,
+      "semantic_density": 3,
+      "structured_data_utilization": 6,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-document-interaction": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 3,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/scheduled-prompts-inventory": {
+    "band": "Low",
+    "total_recommendations": 25,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/graph-actions-semantic-kernel": {
+    "band": "Low",
+    "total_recommendations": 27,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 3,
+      "disambiguation": 1,
+      "semantic_density": 4,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/known-issues-limitations": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 4,
+      "entity_normalization": 3,
+      "disambiguation": 4,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/known-issues": {
+    "band": "Low",
+    "total_recommendations": 25,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-licensing": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 4,
+      "context_completeness": 3,
+      "entity_normalization": 3,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/cost-considerations": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/localize-agents": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-agent-instances": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/manage": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/people-skills-manage-ai-restricted-skills": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-connected-agents-for-researcher": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 5,
+      "semantic_density": 0,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/people-skills-manage-custom-skill": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 4,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 4,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-copilot-agents-integrated-apps": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 3,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-page": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 2,
+      "semantic_density": 4,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/people-skills-sharing-inferencing-controls": {
+    "band": "Low",
+    "total_recommendations": 28,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 3,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-lifecycle/agent-copilot-studio-requested": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 0,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/scheduled-prompts": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 4,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/manage-tools-for-agent": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/people-skills-manage-skills-library": {
+    "band": "Low",
+    "total_recommendations": 25,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/pay-as-you-go/meters": {
+    "band": "Low",
+    "total_recommendations": 15,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-copilot-usage": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 0,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-readiness": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 4,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 5,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/m365-agents-checklist": {
+    "band": "Low",
+    "total_recommendations": 28,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 5,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agents-are-apps": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 1,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enablement-resources": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 5,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-essentials-overview": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/m365-agents-admin-guide": {
+    "band": "Low",
+    "total_recommendations": 27,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 4,
+      "disambiguation": 5,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/m365-agents-blueprint": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/m365-agents-faq": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/m365-agents-visual-map": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 4,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 1,
+      "query_answer_alignment": 5,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/sdks/api-libraries": {
+    "band": "Low",
+    "total_recommendations": 27,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 6,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/copilot-apis-overview": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-app-admin-settings": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-blueprint-oversharing": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 5,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-business-faq": {
+    "band": "Low",
+    "total_recommendations": 13,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 0,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/chat/overview": {
+    "band": "Low",
+    "total_recommendations": 13,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 1,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/graph/peopleconnectors": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-copilot-connector": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 4,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-architecture-data-protection-auditing": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 3,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/feedback": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/faq": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 0,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/planning-guide": {
+    "band": "Low",
+    "total_recommendations": 29,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 3,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 7,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/samples": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 4,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/": {
+    "band": "Low",
+    "total_recommendations": 25,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 4,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-library": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/pay-as-you-go/overview": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-personal-content-mode": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-personalization-memory": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-reports-for-admins": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 0,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/faq-researcher": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/retrieval/overview": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 1,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/retrieval/paygo-retrieval": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 5,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-search": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 1,
+      "semantic_density": 3,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/ai-services/search/overview": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 5,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-search-faq": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-service-plans": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/legal/m365-copilot-apis/terms-of-use": {
+    "band": "Low",
+    "total_recommendations": 25,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 4,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-admin-guide": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-faq": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 4,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-overview": {
+    "band": "Low",
+    "total_recommendations": 28,
+    "weakest_dimension": "chunk_autonomy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 4,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/scheduled-prompts-environment": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-agents-new": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-credits": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 4,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-search-usage": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 3,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/legal/m365-copilot-agent-eval-tool/license-terms": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/workiq-overview": {
+    "band": "Low",
+    "total_recommendations": 34,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 5,
+      "entity_normalization": 3,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 6,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-chat-requirements": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "entity_normalization",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 3,
+      "disambiguation": 1,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-minimum-requirements": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/multiple-account-access": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/optimize-content-retrieval": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/optimization-sharepoint": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 5,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/people-skills-data-and-ai-guidelines": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/people-skills-overview": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/api/admin-settings/package/overview": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/people-skills-ai-inferencing": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 4,
+      "entity_normalization": 4,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/pin-copilot-taskbar": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/pin-copilot-chat-navbar": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/prepare": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "semantic_density",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 5,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-prerequisites": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/prerequisites": {
+    "band": "Low",
+    "total_recommendations": 34,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 4,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 7,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/publish": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/publish": {
+    "band": "Low",
+    "total_recommendations": 25,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 5,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/researcher-agent-computer-use": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/researcher-agent-computer-use-faq": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/rai-faq": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/rai-validation": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-capabilities-ids": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/sap-employee-read-write-scenarios": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/sap-manager-read-write-scenarios": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-knowledge-selection": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoftsearch/semantic-index-for-copilot": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-lifecycle/agent-availability": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-search-image-tagging-integration": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-setup": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/pay-as-you-go/setup": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/people-skills-setup": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/prerequisites": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/opal-settings-manage": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-builder-share-manage-agents": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-policies/agent-sideload": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/provide-feedback": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-policies/agent-submit-marketplace": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/legal/microsoft-365/supplemental-terms": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/agent-templates-overview": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/debugging-agents-vscode": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/debugging-agents-copilot-studio": {
+    "band": "High",
+    "total_recommendations": 0,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 0,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 0,
+      "disambiguation": 0,
+      "semantic_density": 0,
+      "structured_data_utilization": 0,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 0,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-transparency-note": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-troubleshooting-doc-generation": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 4,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-troubleshooting-guardrails": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 1,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-troubleshooting-expert-qa": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 1,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-tuning-troubleshooting-mac": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 4,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-ai-disclaimers": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 0,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-typespec": {
+    "band": "Low",
+    "total_recommendations": 18,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 3,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/copilot-prompt-gallery": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-usage-billing/agent-usage-cs-reports": {
+    "band": "Low",
+    "total_recommendations": 15,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 0,
+      "disambiguation": 3,
+      "semantic_density": 1,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/agent-essentials/agent-lifecycle/agent-upload-agents": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 1,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/usage-analytics": {
+    "band": "Low",
+    "total_recommendations": 19,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 0,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365/admin/manage/agent-map": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 4,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 2,
+      "structured_data_utilization": 5,
+      "query_answer_alignment": 1,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/pay-as-you-go/copilot-capacity-packs": {
+    "band": "Low",
+    "total_recommendations": 15,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 0,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/sharepoint-filtering": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 0,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-advanced-support-config": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "context_completeness",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 4,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-filter-support-config": {
+    "band": "Low",
+    "total_recommendations": 23,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-output-support-config": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-prompts-support-config": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-share-support-config": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 1,
+      "chunk_autonomy": 0,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 5,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 5,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-sort-support-config": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 5,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 5,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/employee-self-service/workday-sub-filter-support-config": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "query_answer_alignment",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 3,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 4,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/ux-custom-engine-agent": {
+    "band": "Low",
+    "total_recommendations": 21,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/pay-as-you-go/view-cost": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "entity_normalization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-enable-users": {
+    "band": "Low",
+    "total_recommendations": 17,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview": {
+    "band": "Low",
+    "total_recommendations": 24,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 3,
+      "context_completeness": 2,
+      "entity_normalization": 2,
+      "disambiguation": 2,
+      "semantic_density": 3,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/researcher-agent": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-app-overview": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 2,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 0,
+      "disambiguation": 4,
+      "semantic_density": 1,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/whats-new-history": {
+    "band": "Low",
+    "total_recommendations": 13,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 1,
+      "semantic_density": 2,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 0,
+      "redundancy_efficiency": 1,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/whats-new": {
+    "band": "Low",
+    "total_recommendations": 16,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 0,
+      "context_completeness": 0,
+      "entity_normalization": 1,
+      "disambiguation": 2,
+      "semantic_density": 2,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 2
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/faq-wordexcelppt-agents": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "disambiguation",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 5,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 3,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/flow-builder-privacy-data-subject-request-faq": {
+    "band": "Low",
+    "total_recommendations": 20,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 1,
+      "entity_normalization": 1,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/copilot/microsoft-365/workforce-insights-agent": {
+    "band": "Low",
+    "total_recommendations": 27,
+    "weakest_dimension": "redundancy_efficiency",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 2,
+      "context_completeness": 2,
+      "entity_normalization": 1,
+      "disambiguation": 4,
+      "semantic_density": 3,
+      "structured_data_utilization": 3,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 5,
+      "cross_section_integrity": 1
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-instructions": {
+    "band": "Low",
+    "total_recommendations": 26,
+    "weakest_dimension": "heading_hierarchy",
+    "by_dimension": {
+      "heading_hierarchy": 4,
+      "chunk_autonomy": 2,
+      "context_completeness": 3,
+      "entity_normalization": 2,
+      "disambiguation": 3,
+      "semantic_density": 3,
+      "structured_data_utilization": 2,
+      "query_answer_alignment": 3,
+      "redundancy_efficiency": 4,
+      "cross_section_integrity": 0
+    }
+  },
+  "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/instructions-api-plugins": {
+    "band": "Low",
+    "total_recommendations": 22,
+    "weakest_dimension": "structured_data_utilization",
+    "by_dimension": {
+      "heading_hierarchy": 3,
+      "chunk_autonomy": 1,
+      "context_completeness": 2,
+      "entity_normalization": 3,
+      "disambiguation": 3,
+      "semantic_density": 2,
+      "structured_data_utilization": 4,
+      "query_answer_alignment": 2,
+      "redundancy_efficiency": 2,
+      "cross_section_integrity": 0
+    }
+  }
+}

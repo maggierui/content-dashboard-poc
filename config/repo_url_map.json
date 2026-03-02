@@ -1,0 +1,27 @@
+{
+  "copilot/microsoft-365": {
+    "org": "MicrosoftDocs",
+    "repo": "microsoft-365-docs-pr",
+    "branch": "main"
+  },
+  "microsoft-365-copilot": {
+    "org": "MicrosoftDocs",
+    "repo": "microsoft-365-docs-pr",
+    "branch": "main"
+  },
+  "microsoft-365": {
+    "org": "MicrosoftDocs",
+    "repo": "microsoft-365-docs-pr",
+    "branch": "main"
+  },
+  "troubleshoot/microsoft-365-apps": {
+    "org": "MicrosoftDocs",
+    "repo": "microsoft-365-docs-pr",
+    "branch": "main"
+  },
+  "microsoftsearch": {
+    "org": "MicrosoftDocs",
+    "repo": "OfficeDocs-MicrosoftSearch-pr",
+    "branch": "main"
+  }
+}

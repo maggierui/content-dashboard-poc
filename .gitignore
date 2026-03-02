@@ -1,12 +1,12 @@
 # Environment
 .env
 
-# Article cache (large text files) and generated scores
+# Article cache (large raw text files — not needed for the dashboard)
 data/cache/*
 !data/cache/.gitkeep
-data/scores/*
-!data/scores/.gitkeep
-data/enriched_report.csv
+
+# Batch job artifacts
+data/scores/*.jsonl
 
 # Python
 __pycache__/

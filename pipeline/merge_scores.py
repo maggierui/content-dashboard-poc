@@ -27,18 +27,20 @@ def load_ai_readiness(path: Path) -> pd.DataFrame:
     if not path.exists():
         print(f"Warning: AI Readiness scores not found at {path}")
         return pd.DataFrame(columns=["Url", "AIReadiness", "AIReadiness_WeakestDim",
-                                     "AIReadiness_TotalRecs"])
+                                     "AIReadiness_TotalRecs", "AIReadiness_ByDimension"])
 
     with open(path, encoding="utf-8") as f:
         data: dict = json.load(f)
 
     rows = []
     for url, score in data.items():
+        by_dim = score.get("by_dimension", {})
         rows.append({
             "Url": url,
             "AIReadiness": score.get("band", ""),
             "AIReadiness_WeakestDim": score.get("weakest_dimension", ""),
             "AIReadiness_TotalRecs": score.get("total_recommendations", None),
+            "AIReadiness_ByDimension": json.dumps(by_dim) if by_dim else None,
         })
     return pd.DataFrame(rows)
 
@@ -143,7 +145,7 @@ def main() -> None:
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(output_path, index=False)
-    print(f"\nSaved enriched report → {output_path}")
+    print(f"\nSaved enriched report -> {output_path}")
 
 
 if __name__ == "__main__":
