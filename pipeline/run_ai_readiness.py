@@ -247,6 +247,9 @@ def main() -> None:
                         help="Output JSON file path")
     parser.add_argument("--batch", action="store_true",
                         help="Use Azure OpenAI Batch API (requires a Global Batch deployment in Azure portal)")
+    parser.add_argument("--force", action="store_true",
+                        help="Re-score all articles even if already in the output file "
+                             "(use this to populate recommendations_by_dimension in existing scores)")
     args = parser.parse_args()
 
     df = pd.read_csv(args.input)
@@ -261,10 +264,12 @@ def main() -> None:
 
     # Load existing scores to allow incremental runs
     existing: dict = {}
-    if output_path.exists():
+    if output_path.exists() and not args.force:
         with open(output_path, encoding="utf-8") as f:
             existing = json.load(f)
         print(f"Loaded {len(existing)} existing scores from {output_path.name}")
+    elif args.force:
+        print("--force: ignoring existing scores, re-grading all articles")
 
     cache_dir = Path(args.cache_dir)
 
