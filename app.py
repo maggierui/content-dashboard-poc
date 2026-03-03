@@ -4,6 +4,7 @@ Three-tab Streamlit app: Data Table | Portfolio Overview | Ask the Data
 """
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -12,6 +13,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 from dotenv import load_dotenv
+from pipeline.url_resolver import url_to_slug
 
 # ── Project root ──────────────────────────────────────────────────────────────
 ROOT = Path(__file__).parent.resolve()
@@ -62,10 +64,6 @@ def load_data() -> pd.DataFrame:
                 "AIReadiness_TotalRecs"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
-    # Show "—" for articles not yet retrievability-scored
-    for col in ["Retrievability_Retrieved", "Retrievability_Total"]:
-        if col in df.columns:
-            df[col] = df[col].fillna("—")
     # Parse date column if present
     for col in df.columns:
         if "date" in col.lower() or "Date" in col:
@@ -299,13 +297,14 @@ def render_data_table(df: pd.DataFrame) -> None:
     sort_asc = st.checkbox("Ascending", value=False)
     display = display.sort_values(sort_col, ascending=sort_asc, na_position="last")
 
-    # Add per-article AI Readiness report link column (local file path)
+    # Add per-article AI Readiness report link column (query-param URL)
+    existing_reports = {p.stem for p in REPORTS_DIR.glob("*.html")}
+
     def make_report_url(url):
         if pd.isna(url):
             return None
-        slug = str(url).rstrip("/").replace("https://learn.microsoft.com/en-us/", "").replace("/", "_")
-        report_path = REPORTS_DIR / f"{slug}.html"
-        return str(report_path) if report_path.exists() else None
+        slug = url_to_slug(str(url))
+        return f"?report={slug}" if slug in existing_reports else None
 
     if "Url" in display.columns:
         display = display.copy()
@@ -592,8 +591,41 @@ def render_chat(df: pd.DataFrame) -> None:
         st.rerun()
 
 
+# ── Report page ───────────────────────────────────────────────────────────────
+_SAFE_SLUG_RE = re.compile(r"^[A-Za-z0-9_\-]+$")
+
+
+def render_report_page(slug: str) -> None:
+    if st.button("← Back to Dashboard"):
+        st.query_params.clear()
+        st.rerun()
+        return
+
+    if not _SAFE_SLUG_RE.match(slug):
+        st.error("Invalid report identifier.")
+        return
+
+    report_path = (REPORTS_DIR / f"{slug}.html").resolve()
+    if not str(report_path).startswith(str(REPORTS_DIR.resolve())):
+        st.error("Invalid report path.")
+        return
+
+    if not report_path.exists():
+        st.error(f"Report not found: `{slug}`")
+        return
+
+    html = report_path.read_text(encoding="utf-8")
+    st.components.v1.html(html, height=800, scrolling=True)
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main() -> None:
+    # Serve per-article report if ?report=<slug> is in the URL
+    report_slug = st.query_params.get("report")
+    if report_slug:
+        render_report_page(report_slug)
+        return
+
     st.title("Content Performance Dashboard")
     st.caption(
         "Engagement metrics enriched with AI Readiness (RAG-optimisation score) "

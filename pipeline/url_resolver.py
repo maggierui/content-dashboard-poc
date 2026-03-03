@@ -9,6 +9,14 @@ from pathlib import Path
 LEARN_BASE = "https://learn.microsoft.com/en-us/"
 
 
+def url_to_slug(url: str) -> str:
+    """Convert a Learn article URL to a filesystem-safe slug (used for report filenames)."""
+    path = url.rstrip("/")
+    if path.startswith(LEARN_BASE):
+        path = path[len(LEARN_BASE):]
+    return path.replace("/", "_")
+
+
 def resolve_github_urls(learn_url: str, map_path: Path) -> dict:
     """
     Given a Learn article URL, return GitHub edit and VS Code Web URLs.

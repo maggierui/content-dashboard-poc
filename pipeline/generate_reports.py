@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(ROOT))
 
-from pipeline.url_resolver import resolve_github_urls
+from pipeline.url_resolver import resolve_github_urls, url_to_slug
 
 SCORES_FILE = ROOT / "data" / "scores" / "ai_readiness_scores.json"
 MAP_FILE = ROOT / "config" / "repo_url_map.json"
@@ -52,13 +52,6 @@ DIMENSION_LABELS = {
 
 DIMENSION_ORDER = list(DIMENSION_LABELS.keys())
 
-
-def url_to_slug(url: str) -> str:
-    path = url.rstrip("/")
-    prefix = "https://learn.microsoft.com/en-us/"
-    if path.startswith(prefix):
-        path = path[len(prefix):]
-    return path.replace("/", "_")
 
 
 def bar_html(count: int, max_count: int, is_weakest: bool) -> str:
