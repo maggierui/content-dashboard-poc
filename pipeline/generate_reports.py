@@ -117,8 +117,16 @@ def generate_report(url: str, score: dict) -> str:
     vscode_url = urls["vscode_url"]
     learn_url = url
 
-    # Primary action button
+    # Sign-in notice (shown only when a VS Code Web link is available)
     if vscode_url:
+        signin_note = (
+            '<div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;'
+            'padding:8px 12px;margin-bottom:12px;font-size:13px;color:#1e40af">'
+            '<strong>Private repo</strong> &mdash; '
+            '<a href="https://github.com/login" target="_blank" style="color:#1d4ed8;font-weight:600">'
+            'Sign in to GitHub</a> with your Microsoft account before opening in VS Code Web.'
+            '</div>'
+        )
         primary_btn = (
             f'<a href="{vscode_url}" target="_blank" style="'
             f'display:inline-block;background:#0066b8;color:white;padding:8px 16px;'
@@ -126,6 +134,7 @@ def generate_report(url: str, score: dict) -> str:
             f'Open in VS Code Web &#x2197;</a>'
         )
     else:
+        signin_note = ""
         primary_btn = ""
 
     secondary_btn = (
@@ -223,6 +232,7 @@ def generate_report(url: str, score: dict) -> str:
   </div>
 
   <div class="actions">
+    {signin_note}
     {primary_btn}
     {secondary_btn}
   </div>
