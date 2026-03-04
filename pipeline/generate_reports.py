@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(ROOT))
 
-from pipeline.url_resolver import resolve_github_urls, url_to_slug
+from pipeline.url_resolver import load_repo_map, resolve_github_urls, url_to_slug
 
 SCORES_FILE = ROOT / "data" / "scores" / "ai_readiness_scores.json"
 MAP_FILE = ROOT / "config" / "repo_url_map.json"
@@ -102,7 +102,7 @@ def _rec_card_html(dim_key: str, recs: list) -> str:
     )
 
 
-def generate_report(url: str, score: dict) -> str:
+def generate_report(url: str, score: dict, repo_map: dict) -> str:
     band = score.get("band", "Unknown")
     total = score.get("total_recommendations", 0)
     weakest = score.get("weakest_dimension", "")
@@ -113,9 +113,14 @@ def generate_report(url: str, score: dict) -> str:
     band_color = BAND_COLORS.get(band, "#6b7280")
     band_icon = BAND_ICONS.get(band, "●")
 
-    urls = resolve_github_urls(url, MAP_FILE)
+    urls = resolve_github_urls(url, repo_map)
     vscode_url = urls["vscode_url"]
     learn_url = url
+
+    _btn_base = (
+        "display:inline-block;padding:8px 16px;border-radius:6px;"
+        "text-decoration:none;font-weight:600;font-size:14px"
+    )
 
     # Sign-in notice (shown only when a VS Code Web link is available)
     if vscode_url:
@@ -128,9 +133,8 @@ def generate_report(url: str, score: dict) -> str:
             '</div>'
         )
         primary_btn = (
-            f'<a href="{vscode_url}" target="_blank" style="'
-            f'display:inline-block;background:#0066b8;color:white;padding:8px 16px;'
-            f'border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;margin-right:8px">'
+            f'<a href="{vscode_url}" target="_blank" style="{_btn_base};'
+            f'background:#0066b8;color:white;margin-right:8px">'
             f'Open in VS Code Web &#x2197;</a>'
         )
     else:
@@ -138,10 +142,8 @@ def generate_report(url: str, score: dict) -> str:
         primary_btn = ""
 
     secondary_btn = (
-        f'<a href="{learn_url}" target="_blank" style="'
-        f'display:inline-block;background:#f3f4f6;color:#374151;padding:8px 16px;'
-        f'border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;'
-        f'border:1px solid #d1d5db">'
+        f'<a href="{learn_url}" target="_blank" style="{_btn_base};'
+        f'background:#f3f4f6;color:#374151;border:1px solid #d1d5db">'
         f'View on Learn &#x2197;</a>'
     )
 
@@ -275,11 +277,13 @@ def main() -> None:
     else:
         urls_to_process = scores
 
+    repo_map = load_repo_map(MAP_FILE)
+
     generated = 0
     for url, score in urls_to_process.items():
         slug = url_to_slug(url)
         report_path = output_dir / f"{slug}.html"
-        html = generate_report(url, score)
+        html = generate_report(url, score, repo_map)
         report_path.write_text(html, encoding="utf-8")
         generated += 1
 

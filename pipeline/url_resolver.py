@@ -17,9 +17,19 @@ def url_to_slug(url: str) -> str:
     return path.replace("/", "_")
 
 
-def resolve_github_urls(learn_url: str, map_path: Path) -> dict:
+def load_repo_map(map_path: Path) -> dict:
+    """Load the repo URL map from disk. Returns {} if file does not exist."""
+    if not map_path.exists():
+        return {}
+    with open(map_path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def resolve_github_urls(learn_url: str, repo_map: dict) -> dict:
     """
-    Given a Learn article URL, return GitHub edit and VS Code Web URLs.
+    Given a Learn article URL and a pre-loaded repo map, return GitHub/VS Code URLs.
+
+    repo_map should be the dict returned by load_repo_map().
 
     Returns a dict with:
       - github_edit_url: https://github.com/{org}/{repo}/edit/{branch}/{path}.md
@@ -29,12 +39,6 @@ def resolve_github_urls(learn_url: str, map_path: Path) -> dict:
     """
     fallback = {"github_edit_url": None, "vscode_url": None,
                 "fallback_url": learn_url, "matched": False}
-
-    if not map_path.exists():
-        return fallback
-
-    with open(map_path, encoding="utf-8") as f:
-        repo_map: dict = json.load(f)
 
     # Strip Learn base prefix and trailing slash
     url = learn_url.rstrip("/")
