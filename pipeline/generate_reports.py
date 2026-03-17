@@ -20,6 +20,7 @@ ROOT = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(ROOT))
 
 from pipeline.url_resolver import load_repo_map, resolve_github_urls, url_to_slug
+from pipeline.url_utils import infer_platform
 
 SCORES_FILE = ROOT / "data" / "scores" / "ai_readiness_scores.json"
 MAP_FILE = ROOT / "config" / "repo_url_map.json"
@@ -141,10 +142,11 @@ def generate_report(url: str, score: dict, repo_map: dict) -> str:
         signin_note = ""
         primary_btn = ""
 
+    secondary_label = "View on Learn" if infer_platform(url) == "learn" else "View article"
     secondary_btn = (
         f'<a href="{learn_url}" target="_blank" style="{_btn_base};'
         f'background:#f3f4f6;color:#374151;border:1px solid #d1d5db">'
-        f'View on Learn &#x2197;</a>'
+        f'{secondary_label} &#x2197;</a>'
     )
 
     # Dimension rows

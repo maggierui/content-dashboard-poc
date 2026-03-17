@@ -6,16 +6,9 @@ Uses config/repo_url_map.json for longest-prefix matching.
 import json
 from pathlib import Path
 
+from pipeline.url_utils import infer_platform, normalize_url, url_to_slug
+
 LEARN_BASE = "https://learn.microsoft.com/en-us/"
-
-
-def url_to_slug(url: str) -> str:
-    """Convert a Learn article URL to a filesystem-safe slug (used for report filenames)."""
-    path = url.rstrip("/")
-    if path.startswith(LEARN_BASE):
-        path = path[len(LEARN_BASE):]
-    return path.replace("/", "_")
-
 
 def load_repo_map(map_path: Path) -> dict:
     """Load the repo URL map from disk. Returns {} if file does not exist."""
@@ -25,7 +18,7 @@ def load_repo_map(map_path: Path) -> dict:
         return json.load(f)
 
 
-def resolve_github_urls(learn_url: str, repo_map: dict) -> dict:
+def resolve_github_urls(article_url: str, repo_map: dict) -> dict:
     """
     Given a Learn article URL and a pre-loaded repo map, return GitHub/VS Code URLs.
 
@@ -37,11 +30,14 @@ def resolve_github_urls(learn_url: str, repo_map: dict) -> dict:
       - fallback_url:    original Learn URL (used when no repo mapping found)
       - matched:         True if a repo mapping was found
     """
+    normalized_url = normalize_url(article_url)
     fallback = {"github_edit_url": None, "vscode_url": None,
-                "fallback_url": learn_url, "matched": False}
+                "fallback_url": normalized_url, "matched": False}
 
     # Strip Learn base prefix and trailing slash
-    url = learn_url.rstrip("/")
+    url = normalized_url.rstrip("/")
+    if infer_platform(url) != "learn":
+        return fallback
     if url.startswith(LEARN_BASE):
         path = url[len(LEARN_BASE):]
     else:
@@ -65,6 +61,6 @@ def resolve_github_urls(learn_url: str, repo_map: dict) -> dict:
     return {
         "github_edit_url": f"https://github.com/{org}/{repo}/edit/{branch}/{path}.md",
         "vscode_url": f"https://github.dev/{org}/{repo}/blob/{branch}/{path}.md",
-        "fallback_url": learn_url,
+        "fallback_url": normalized_url,
         "matched": True,
     }

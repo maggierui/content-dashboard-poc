@@ -51,17 +51,17 @@ def load_data() -> pd.DataFrame:
             f"Enriched CSV not found at `{ENRICHED_CSV}`. "
             "Run the pipeline first:\n\n"
             "```\n"
-            "python pipeline/fetch_articles.py --input data/sample_engagement.csv\n"
-            "python pipeline/run_ai_readiness.py --input data/sample_engagement.csv\n"
-            "python pipeline/run_retrievability.py --input data/sample_engagement.csv\n"
-            "python pipeline/merge_scores.py --input data/sample_engagement.csv\n"
+            "python pipeline/fetch_articles.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv\n"
+            "python pipeline/run_ai_readiness.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv\n"
+            "python pipeline/run_retrievability.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv\n"
+            "python pipeline/merge_scores.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv\n"
             "```"
         )
         st.stop()
     df = pd.read_csv(ENRICHED_CSV)
     # Ensure numeric types
     for col in ["Retrievability", "Retrievability_Retrieved", "Retrievability_Total",
-                "AIReadiness_TotalRecs"]:
+                "AIReadiness_TotalRecs", "PageViews", "Page Views", "PageViews_Normalized"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
     # Parse date column if present
@@ -199,6 +199,17 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
     st.sidebar.title("Filters")
     filtered = df.copy()
 
+    if "Platform" in df.columns:
+        platforms = sorted(df["Platform"].dropna().unique().tolist())
+        if platforms:
+            selected_platforms = st.sidebar.multiselect(
+                "Platform",
+                options=platforms,
+                default=platforms,
+            )
+            if selected_platforms:
+                filtered = filtered[filtered["Platform"].isin(selected_platforms)]
+
     # Date range filter (if any date column exists)
     date_cols = [c for c in df.columns if pd.api.types.is_datetime64_any_dtype(df[c])]
     if date_cols:
@@ -220,7 +231,7 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
                 ]
 
     # Group filter
-    group_col = next(
+    group_col = "Group_Normalized" if "Group_Normalized" in df.columns else next(
         (c for c in df.columns if c.lower() in ("group", "team", "category")), None
     )
     if group_col:
@@ -232,7 +243,7 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
             filtered = filtered[filtered[group_col].isin(selected_groups)]
 
     # TopicType filter
-    topic_col = next(
+    topic_col = "TopicType_Normalized" if "TopicType_Normalized" in df.columns else next(
         (c for c in df.columns if "topic" in c.lower() or "type" in c.lower()), None
     )
     if topic_col:
@@ -375,6 +386,11 @@ def render_data_table(df: pd.DataFrame) -> None:
             ),
         )
 
+    if "Platform" in display.columns:
+        col_config["Platform"] = st.column_config.TextColumn("Platform")
+    if "ContentSource" in display.columns:
+        col_config["ContentSource"] = st.column_config.TextColumn("Content Source")
+
     # Identify URL column for linking
     url_col = next(
         (c for c in display.columns if c.lower() == "url"), None
@@ -474,7 +490,7 @@ def render_portfolio(df: pd.DataFrame) -> None:
     # ── Scatter: Retrievability vs PageViews ──────────────────────────────────
     st.subheader("Retrievability vs. Page Views (colored by AI Readiness)")
 
-    pv_col = next(
+    pv_col = "PageViews_Normalized" if "PageViews_Normalized" in df.columns else next(
         (c for c in df.columns if "pageview" in c.lower() or "page_view" in c.lower()),
         None,
     )
@@ -491,7 +507,7 @@ def render_portfolio(df: pd.DataFrame) -> None:
             color_col = None
             color_map = None
 
-        title_col = next(
+        title_col = "Title_Normalized" if "Title_Normalized" in scatter_df.columns else next(
             (c for c in scatter_df.columns if "title" in c.lower()), None
         )
         url_col = next(
@@ -540,7 +556,7 @@ def render_portfolio(df: pd.DataFrame) -> None:
             st.dataframe(priority_df[display_cols], use_container_width=True)
     else:
         st.info(
-            "Scatter plot requires both `Retrievability` scores and a `PageViews` column."
+            "Scatter plot requires both `Retrievability` scores and a page-views column."
         )
 
 
