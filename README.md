@@ -80,14 +80,16 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env with your Azure OpenAI endpoint and key
 
-# 3. Drop your Power BI CSV export here:
-#    data/sample_engagement.csv  (must have a "Url" column)
+# 3. Place your engagement CSV exports in data/:
+#    data/LMC_Monthly_Engagement_Metrics.csv
+#    data/SMC_Monthly_Engagement_Metrics.csv
 
-# 4. Run the pipeline (all steps are incremental — re-running skips already-processed articles)
-python pipeline/fetch_articles.py --input data/sample_engagement.csv
-python pipeline/run_ai_readiness.py --input data/sample_engagement.csv
-python pipeline/run_retrievability.py --input data/sample_engagement.csv
-python pipeline/merge_scores.py
+# 4. Build normalized cache + scores
+#    Prefer Learn markdown and Support XML source trees; live HTML fetch is fallback
+python pipeline/fetch_articles.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv --learn-source-dir <learn-markdown-dir> --support-source-dir C:\Github\gp.smc.cross-app C:\Github\gp.smc.microsoft-365
+python pipeline/run_ai_readiness.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv
+python pipeline/run_retrievability.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv
+python pipeline/merge_scores.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv
 
 # 5. Generate per-article HTML reports
 python pipeline/generate_reports.py
@@ -100,8 +102,8 @@ streamlit run app.py
 
 ```bash
 # Re-score all articles and overwrite existing scores (triggers LLM calls)
-python pipeline/run_ai_readiness.py --input data/sample_engagement.csv --force
-python pipeline/merge_scores.py
+python pipeline/run_ai_readiness.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv --force
+python pipeline/merge_scores.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv
 python pipeline/generate_reports.py
 ```
 
