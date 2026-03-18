@@ -43,6 +43,20 @@ BAND_ORDER = ["High", "Medium", "Low"]
 DEPLOYMENT_NAME = os.environ.get("DEPLOYMENT_NAME", "gpt-5-mini")
 
 
+# ── Helpers ────────────────────────────────────────────────────────────────────
+def _coalesce_col(df: pd.DataFrame, primary: str, fallback: str) -> pd.Series:
+    """Return primary column filled with fallback where primary is NaN.
+
+    Used to unify LMC and SMC column name variants
+    (e.g. 'BounceRate' vs 'Bounce Rate') into a single display column.
+    """
+    if primary in df.columns and fallback in df.columns:
+        return df[primary].fillna(df[fallback])
+    if primary in df.columns:
+        return df[primary]
+    return df[fallback] if fallback in df.columns else pd.Series([None] * len(df), index=df.index)
+
+
 # ── Data loading ──────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data() -> pd.DataFrame:
@@ -64,6 +78,25 @@ def load_data() -> pd.DataFrame:
                 "AIReadiness_TotalRecs", "PageViews", "Page Views", "PageViews_Normalized"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
+    # Fill PageViewsMoM from SMC's "PVs MoM" column (percentage string) for rows where it is missing
+    if "PVs MoM" in df.columns and "PageViewsMoM" in df.columns:
+        pct = (
+            df["PVs MoM"].astype(str)
+            .str.replace("%", "", regex=False)
+            .str.strip()
+        )
+        df["PageViewsMoM"] = df["PageViewsMoM"].fillna(pd.to_numeric(pct, errors="coerce"))
+
+    # Unified columns — coalesce LMC and SMC column-name variants into single display columns
+    df["BounceRate_N"]       = _coalesce_col(df, "BounceRate",        "Bounce Rate")
+    df["ClickthroughRate_N"] = _coalesce_col(df, "ClickThroughRate",  "Clickthrough Rate")
+    df["ExitRate_N"]         = _coalesce_col(df, "ExitRate",          "Exit Rate")
+    df["InteractionRate_N"]  = _coalesce_col(df, "CopyTryScrollRate", "Play Scroll Interact Rate")
+    df["HelpfulRate_N"]      = _coalesce_col(df, "HelpfulRating",     "Helpful Rate")
+    # "FreshNess" (capital N) is the SMC CSV's column name — not a typo
+    df["Freshness_N"]        = _coalesce_col(df, "Freshness",         "FreshNess")
+    df["Author_N"]           = _coalesce_col(df, "MSAuthor",          "Author")
+
     # Parse date column if present
     for col in df.columns:
         if "date" in col.lower() or "Date" in col:
@@ -203,9 +236,10 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
         platforms = sorted(df["Platform"].dropna().unique().tolist())
         if platforms:
             selected_platforms = st.sidebar.multiselect(
-                "Platform",
+                "Platform (default: all sources)",
                 options=platforms,
                 default=platforms,
+                key="platform_filter_v2",
             )
             if selected_platforms:
                 filtered = filtered[filtered["Platform"].isin(selected_platforms)]
@@ -240,7 +274,11 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
             "Group", options=groups, default=groups
         )
         if selected_groups:
-            filtered = filtered[filtered[group_col].isin(selected_groups)]
+            # NaN rows (SMC articles — no group classification) always pass through;
+            # they are a separate content system, not an unselected LMC group.
+            filtered = filtered[
+                filtered[group_col].isin(selected_groups) | filtered[group_col].isna()
+            ]
 
     # TopicType filter
     topic_col = "TopicType_Normalized" if "TopicType_Normalized" in df.columns else next(
@@ -252,7 +290,10 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
             "Topic Type", options=topics, default=topics
         )
         if selected_topics:
-            filtered = filtered[filtered[topic_col].isin(selected_topics)]
+            # NaN rows pass through for the same reason as the Group filter above.
+            filtered = filtered[
+                filtered[topic_col].isin(selected_topics) | filtered[topic_col].isna()
+            ]
 
     # AI Readiness filter
     if "AIReadiness" in df.columns:
@@ -299,10 +340,30 @@ def render_data_table(df: pd.DataFrame) -> None:
     # Build display dataframe
     display = df.copy()
 
+    if "Platform" in display.columns:
+        source_view = st.radio(
+            "Quick source view",
+            options=["All", "Learn only", "Support only", "Support with AI scores"],
+            horizontal=True,
+        )
+        platform_series = display["Platform"].astype(str).str.lower()
+        if source_view == "Learn only":
+            display = display[platform_series == "learn"]
+        elif source_view == "Support only":
+            display = display[platform_series == "support"]
+        elif source_view == "Support with AI scores":
+            ai_mask = (
+                display["AIReadiness"].notna()
+                if "AIReadiness" in display.columns
+                else pd.Series(False, index=display.index)
+            )
+            display = display[(platform_series == "support") & ai_mask]
+        st.caption(f"Showing {len(display):,} rows for: {source_view}")
+
     # Sort controls
     sort_col = st.selectbox(
         "Sort by",
-        options=[c for c in df.columns if c != "AIReadiness"],
+        options=[c for c in display.columns if c != "AIReadiness"],
         index=0,
     )
     sort_asc = st.checkbox("Ascending", value=False)
@@ -321,11 +382,39 @@ def render_data_table(df: pd.DataFrame) -> None:
         display = display.copy()
         display["AIReadiness_Report"] = display["Url"].apply(make_report_url)
 
-    # Columns hidden from the main table (available via detail reports or tooltips)
-    HIDDEN_COLS = {
-        "AIReadiness_ByDimension",
-    }
-    cols_to_show = [c for c in display.columns if c not in HIDDEN_COLS]
+    # Curate the main table to the key fields people actually use in the UI.
+    preferred_order = [
+        "Date",
+        "Platform",
+        "ContentSource",
+        "Group_Normalized",
+        "TopicType_Normalized",
+        "Url",
+        "Title",
+        # Traffic & engagement (right after Title)
+        "PageViews_Normalized",
+        "Visitors",
+        "Freshness_N",
+        "Engagement",
+        "BounceRate_N",
+        "ClickthroughRate_N",
+        "ExitRate_N",
+        "InteractionRate_N",
+        "HelpfulRate_N",
+        "Ratings",
+        # AI scores
+        "AIReadiness",
+        "AIReadiness_TotalRecs",
+        "AIReadiness_WeakestDim",
+        "Retrievability",
+        "Retrievability_Retrieved",
+        "Retrievability_Total",
+        "AIReadiness_Report",
+        # Authorship & MoM (last)
+        "Author_N",
+        "PageViewsMoM",
+    ]
+    cols_to_show = [c for c in preferred_order if c in display.columns]
 
     # Use st.dataframe with column config for richer display
     col_config = {}
@@ -390,6 +479,29 @@ def render_data_table(df: pd.DataFrame) -> None:
         col_config["Platform"] = st.column_config.TextColumn("Platform")
     if "ContentSource" in display.columns:
         col_config["ContentSource"] = st.column_config.TextColumn("Content Source")
+    if "Group_Normalized" in display.columns:
+        col_config["Group_Normalized"] = st.column_config.TextColumn("Group")
+    if "TopicType_Normalized" in display.columns:
+        col_config["TopicType_Normalized"] = st.column_config.TextColumn("TopicType")
+    if "PageViews_Normalized" in display.columns:
+        col_config["PageViews_Normalized"] = st.column_config.NumberColumn("PageViews")
+    if "Freshness_N" in display.columns:
+        col_config["Freshness_N"] = st.column_config.TextColumn("Freshness")
+    if "BounceRate_N" in display.columns:
+        col_config["BounceRate_N"] = st.column_config.TextColumn("Bounce Rate")
+    if "ClickthroughRate_N" in display.columns:
+        col_config["ClickthroughRate_N"] = st.column_config.TextColumn("Clickthrough Rate")
+    if "ExitRate_N" in display.columns:
+        col_config["ExitRate_N"] = st.column_config.TextColumn("Exit Rate")
+    if "InteractionRate_N" in display.columns:
+        col_config["InteractionRate_N"] = st.column_config.TextColumn(
+            "Copy/Try/Scroll",
+            help="CopyTryScrollRate (Learn) or Play Scroll Interact Rate (Support)",
+        )
+    if "HelpfulRate_N" in display.columns:
+        col_config["HelpfulRate_N"] = st.column_config.TextColumn("Helpful Rate")
+    if "Author_N" in display.columns:
+        col_config["Author_N"] = st.column_config.TextColumn("Author")
 
     # Identify URL column for linking
     url_col = next(
@@ -408,9 +520,29 @@ def render_data_table(df: pd.DataFrame) -> None:
             display_text="Report \u2197",
         )
 
-    if "Retrievability" in df.columns:
-        scored = df["Url"].loc[df["Retrievability"].notna()].nunique()
-        total = df["Url"].nunique()
+    if "AIReadiness" in display.columns:
+        ai_scored = display["Url"].loc[display["AIReadiness"].notna()].nunique()
+        total = display["Url"].nunique()
+        ai_pct = ai_scored / total * 100 if total > 0 else 0
+        st.caption(
+            f"AI Readiness scored: {ai_scored}/{total} unique articles ({ai_pct:.0f}%) "
+            "— includes Microsoft Learn and Microsoft Support rows currently scored"
+        )
+
+    if "Platform" in display.columns:
+        source_counts = (
+            display.groupby("Platform")["Url"].nunique().sort_index().to_dict()
+            if "Url" in display.columns else {}
+        )
+        if source_counts:
+            source_summary = ", ".join(
+                f"{platform}: {count}" for platform, count in source_counts.items()
+            )
+            st.caption(f"Showing — {source_summary}")
+
+    if "Retrievability" in display.columns:
+        scored = display["Url"].loc[display["Retrievability"].notna()].nunique()
+        total = display["Url"].nunique()
         pct = scored / total * 100 if total > 0 else 0
         st.caption(
             f"Retrievability scored: {scored}/{total} unique articles ({pct:.0f}%) "
