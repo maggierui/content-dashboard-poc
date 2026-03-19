@@ -31,7 +31,30 @@ st.set_page_config(
 # ── Constants ─────────────────────────────────────────────────────────────────
 ENRICHED_CSV = ROOT / "data" / "enriched_report.csv"
 RETRIEVABILITY_JSON = ROOT / "data" / "scores" / "retrievability_scores.json"
+AI_READINESS_JSON = ROOT / "data" / "scores" / "ai_readiness_scores.json"
 REPORTS_DIR = ROOT / "data" / "reports"
+ENGAGEMENT_CSVS = [
+    ROOT / "data" / "LMC_Monthly_Engagement_Metrics.csv",
+    ROOT / "data" / "SMC_Monthly_Engagement_Metrics.csv",
+]
+
+# ── Auto-merge: rebuild enriched CSV if any source is newer ───────────────────
+def _needs_rebuild() -> bool:
+    """Return True if enriched CSV is missing or older than any score/input file."""
+    if not ENRICHED_CSV.exists():
+        return True
+    csv_mtime = ENRICHED_CSV.stat().st_mtime
+    sources = [AI_READINESS_JSON, RETRIEVABILITY_JSON] + ENGAGEMENT_CSVS
+    return any(p.exists() and p.stat().st_mtime > csv_mtime for p in sources)
+
+
+if _needs_rebuild():
+    from pipeline.merge_scores import build_enriched_csv
+    existing_csvs = [p for p in ENGAGEMENT_CSVS if p.exists()]
+    if existing_csvs:
+        with st.spinner("Refreshing enriched report (scores or inputs updated)…"):
+            build_enriched_csv(existing_csvs, ENRICHED_CSV)
+        st.cache_data.clear()
 
 BAND_COLORS = {
     "High": "#22c55e",    # green

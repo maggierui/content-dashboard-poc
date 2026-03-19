@@ -69,6 +69,43 @@ def load_retrievability(path: Path) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def build_enriched_csv(
+    input_paths: list[str | Path],
+    output_path: Path = DEFAULT_OUTPUT,
+    ai_readiness_path: Path = AI_READINESS_FILE,
+    retrievability_path: Path = RETRIEVABILITY_FILE,
+) -> Path:
+    """Merge engagement CSVs with scores and write enriched CSV. Returns output path."""
+    df = load_engagement_csvs(input_paths)
+    df["Url"] = df["Url"].map(normalize_url)
+
+    ai_df = load_ai_readiness(ai_readiness_path)
+    if not ai_df.empty:
+        ai_df["Url"] = ai_df["Url"].map(normalize_url)
+    retr_df = load_retrievability(retrievability_path)
+    if not retr_df.empty:
+        retr_df["Url"] = retr_df["Url"].map(normalize_url)
+
+    result = df.copy()
+    if not ai_df.empty:
+        result = result.merge(ai_df, on="Url", how="left")
+    else:
+        result["AIReadiness"] = None
+        result["AIReadiness_WeakestDim"] = None
+        result["AIReadiness_TotalRecs"] = None
+
+    if not retr_df.empty:
+        result = result.merge(retr_df, on="Url", how="left")
+    else:
+        result["Retrievability"] = None
+        result["Retrievability_Retrieved"] = None
+        result["Retrievability_Total"] = None
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    result.to_csv(output_path, index=False)
+    return output_path
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Merge AI Readiness + Retrievability scores into the Power BI CSV"
