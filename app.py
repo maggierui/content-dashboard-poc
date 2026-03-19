@@ -73,6 +73,32 @@ def load_data() -> pd.DataFrame:
         )
         st.stop()
     df = pd.read_csv(ENRICHED_CSV)
+
+    # Backfill missing titles from cached article text files.
+    # The SMC CSV omits titles for some support articles; the cache has them
+    # as the first "## Heading" line from the fetched page.
+    cache_dir = ROOT / "data" / "cache"
+    if cache_dir.exists() and "Title" in df.columns and "Url" in df.columns:
+        missing_mask = df["Title"].isna() | (df["Title"].astype(str).str.strip() == "")
+        for idx in df[missing_mask].index:
+            url = df.at[idx, "Url"]
+            if not isinstance(url, str):
+                continue
+            try:
+                slug = url_to_slug(url)
+            except Exception:
+                continue
+            cache_file = cache_dir / f"{slug}.txt"
+            if not cache_file.exists():
+                continue
+            first_line = cache_file.read_text(encoding="utf-8").split("\n")[0].strip()
+            m = re.match(r"^#+\s+(.*)", first_line)
+            if m:
+                title = m.group(1).strip()
+                df.at[idx, "Title"] = title
+                if "Title_Normalized" in df.columns:
+                    df.at[idx, "Title_Normalized"] = title
+
     # Ensure numeric types
     for col in ["Retrievability", "Retrievability_Retrieved", "Retrievability_Total",
                 "AIReadiness_TotalRecs", "PageViews", "Page Views", "PageViews_Normalized"]:
