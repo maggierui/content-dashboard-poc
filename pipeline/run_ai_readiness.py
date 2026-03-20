@@ -138,7 +138,7 @@ async def run_direct(
         try:
             score = await score_article(client, deployment, url, content)
             results[url] = score
-            print(f"    → {score['band']} ({score['total_recommendations']} recs, "
+            print(f"    -> {score['band']} ({score['total_recommendations']} recs, "
                   f"weakest: {score['weakest_dimension']})")
         except Exception as exc:
             print(f"    Error: {exc}")
@@ -265,7 +265,7 @@ def main() -> None:
     output_path.write_text(
         json.dumps(final_scores, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    print(f"\nSaved {len(final_scores)} scores → {output_path}")
+    print(f"\nSaved {len(final_scores)} scores -> {output_path}")
 
 
 if __name__ == "__main__":
