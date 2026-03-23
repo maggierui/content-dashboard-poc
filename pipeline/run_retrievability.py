@@ -4,7 +4,7 @@ run_retrievability.py - Generate questions per article then hit-test the Knowled
 Pipeline:
   Step 2a: Generate questions per article via concurrent direct API calls (default)
            or Azure OpenAI Batch API (--batch, requires a Global Batch deployment)
-  Step 2b: Save questions checkpoint → data/scores/questions.json
+  Step 2b: Save questions checkpoint -> data/scores/questions.json
   Step 2c: Query Knowledge Service for each question
   Step 2d: Calculate hit-rate score (0–100)
 
@@ -116,7 +116,7 @@ def generate_questions_direct(
             response = send_response_request(deployment, prompt, content, "low", client=client)
             qs = parse_questions_from_response(response)
             qs = qs[:10]  # cap at 10 (5 concise + 5 BM25)
-            print(f"    → {len(qs)} questions for {url[:60]}...")
+            print(f"    -> {len(qs)} questions for {url[:60]}...")
             return url, qs
         except Exception as exc:
             print(f"    Error for {url}: {exc}")
@@ -337,7 +337,7 @@ def main() -> None:
         questions_path.write_text(
             json.dumps(all_questions, indent=2, ensure_ascii=False), encoding="utf-8"
         )
-        print(f"Saved questions checkpoint → {questions_path}")
+        print(f"Saved questions checkpoint -> {questions_path}")
 
     # Filter to only articles that have questions
     article_questions = {
@@ -375,7 +375,7 @@ def main() -> None:
     output_path.write_text(
         json.dumps(existing_scores, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    print(f"\nSaved {len(existing_scores)} retrievability scores → {output_path}")
+    print(f"\nSaved {len(existing_scores)} retrievability scores -> {output_path}")
 
 
 if __name__ == "__main__":
