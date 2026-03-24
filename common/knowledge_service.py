@@ -8,15 +8,17 @@ from common.token_provider import TokenProvider
 
 _token_provider = TokenProvider("https://learn.microsoft.com/.default")
 
-def call_knowledge_service(question, token_provider=_token_provider, top_k=5):
+def call_knowledge_service(question, token_provider=_token_provider, top_k=5, filter_expr=None):
     bearer_token = token_provider.get_token()
     headers = {
-        'Content-Type': 'application/json', 
+        'Content-Type': 'application/json',
         'Authorization': f'Bearer {bearer_token}'
     }
 
     data = {'input': question}
-    
+    if filter_expr:
+        data['filter'] = filter_expr
+
     url = "https://learn.microsoft.com/api/v1/knowledge-search?api-version=2023-11-01-preview"
 
     if top_k != 5:
@@ -99,7 +101,7 @@ def parse_results(results) -> list[dict]:
         chunks.append(chunk_data)
     return chunks
 
-def process_single_question(question: str, top_k: int) -> list[dict]:
+def process_single_question(question: str, top_k: int, filter_expr: str | None = None) -> list[dict]:
     """Process a single question and return the evaluation data."""
     max_retries = 3
     base_delay = 1.0  # seconds
@@ -107,7 +109,7 @@ def process_single_question(question: str, top_k: int) -> list[dict]:
 
     for attempt in range(max_retries + 1):
         try:
-            json_results = call_knowledge_service(question, top_k=top_k)
+            json_results = call_knowledge_service(question, top_k=top_k, filter_expr=filter_expr)
             return parse_results(json_results)
         except Exception as e:
             if attempt == max_retries:

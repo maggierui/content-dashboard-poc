@@ -35,7 +35,7 @@ from common.send_openai_request import create_client, send_response_request
 from common.prompts import load_prompt
 from common.batch import write_jsonl, send_batch, get_batch_results
 from pipeline.engagement_inputs import load_unique_urls
-from pipeline.url_utils import url_matches_chunk_url, url_to_slug
+from pipeline.url_utils import url_matches_chunk_url, url_to_slug, infer_platform
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 SCORES_DIR = ROOT / "data" / "scores"
@@ -180,6 +180,9 @@ def check_url_in_chunks(article_url: str, chunks: list[dict]) -> bool:
     return False
 
 
+SMC_FILTER = "site eq 'support.microsoft.com'"
+
+
 def query_ks_for_article(
     article_url: str,
     questions: list[str],
@@ -196,9 +199,11 @@ def query_ks_for_article(
     retrieved_count = 0
     error_count = 0  # questions where KS returned 0 chunks (suspicious)
 
+    filter_expr = SMC_FILTER if infer_platform(article_url) == "support" else None
+
     for question in questions:
         try:
-            chunks = process_single_question(question, top_k=TOP_K)
+            chunks = process_single_question(question, top_k=TOP_K, filter_expr=filter_expr)
             chunk_count = len(chunks)
             found = check_url_in_chunks(article_url, chunks)
         except Exception as exc:
