@@ -454,10 +454,7 @@ def render_data_table(df: pd.DataFrame) -> None:
         # AI scores
         "AIReadiness",
         "AIReadiness_TotalRecs",
-        "AIReadiness_WeakestDim",
         "Retrievability",
-        "Retrievability_Retrieved",
-        "Retrievability_Total",
         "AIReadiness_Report",
         # Authorship & MoM (last)
         "Author_N",
@@ -470,7 +467,7 @@ def render_data_table(df: pd.DataFrame) -> None:
 
     if "AIReadiness" in display.columns:
         col_config["AIReadiness"] = st.column_config.TextColumn(
-            "AI Readiness",
+            "Retrieval Readiness",
             help=(
                 "Band based on total editorial recommendations across 10 RAG-readiness "
                 "dimensions. High = 0–3 recs (well-optimized for AI retrieval), "
@@ -487,14 +484,6 @@ def render_data_table(df: pd.DataFrame) -> None:
                 "redundancy efficiency, and cross-section integrity."
             ),
         )
-    if "AIReadiness_WeakestDim" in display.columns:
-        col_config["AIReadiness_WeakestDim"] = st.column_config.TextColumn(
-            "Weakest Dimension",
-            help=(
-                "The dimension with the highest recommendation count — where improving this "
-                "article will have the greatest impact on AI retrieval quality."
-            ),
-        )
     if "Retrievability" in display.columns:
         col_config["Retrievability"] = st.column_config.ProgressColumn(
             "Retrievability",
@@ -507,23 +496,6 @@ def render_data_table(df: pd.DataFrame) -> None:
             max_value=100,
             format="%d%%",
         )
-    if "Retrievability_Retrieved" in display.columns:
-        col_config["Retrievability_Retrieved"] = st.column_config.NumberColumn(
-            "Retrieved",
-            help=(
-                "Number of test questions (out of 10) that successfully retrieved this article "
-                "from the Knowledge Service."
-            ),
-        )
-    if "Retrievability_Total" in display.columns:
-        col_config["Retrievability_Total"] = st.column_config.NumberColumn(
-            "Total Questions",
-            help=(
-                "Total test questions used (typically 10: 5 natural-language + "
-                "5 BM25 keyword variants)."
-            ),
-        )
-
     if "Platform" in display.columns:
         col_config["Platform"] = st.column_config.TextColumn("Platform")
     if "ContentSource" in display.columns:
