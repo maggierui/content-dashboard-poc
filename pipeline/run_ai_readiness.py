@@ -1,5 +1,5 @@
 """
-run_ai_readiness.py - Grade articles across 10 RAG-readiness dimensions.
+run_ai_readiness.py - Grade articles across 6 RAG-readiness dimensions.
 
 Usage:
     # Default (direct async calls, any number of articles):
@@ -93,6 +93,7 @@ async def run_direct(
     urls: list[str],
     cache_dir: Path,
     existing: dict,
+    output_path: Path = OUTPUT_FILE,
 ) -> dict:
     """Run AI Readiness grading directly (no batch API)."""
     from openai import AsyncAzureOpenAI
@@ -142,6 +143,11 @@ async def run_direct(
                   f"weakest: {score['weakest_dimension']})")
         except Exception as exc:
             print(f"    Error: {exc}")
+
+        # Save incrementally after each article so progress is never lost
+        output_path.write_text(
+            json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
 
     return results
 
@@ -260,7 +266,7 @@ def main() -> None:
     if args.batch:
         final_scores = run_batch(urls, cache_dir, existing)
     else:
-        final_scores = asyncio.run(run_direct(urls, cache_dir, existing))
+        final_scores = asyncio.run(run_direct(urls, cache_dir, existing, output_path))
 
     output_path.write_text(
         json.dumps(final_scores, indent=2, ensure_ascii=False), encoding="utf-8"

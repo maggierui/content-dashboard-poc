@@ -25473,5 +25473,991 @@
         "chunks_returned": 5
       }
     ]
+  },
+  "https://support.microsoft.com/en-us/topic/95b09807-74bf-4af0-87a3-b5807553556a": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I add a new vocabulary word in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "add new item vocabulary Dragon Copilot Settings Library Vocabulary",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I record and save pronunciation for a vocabulary word?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "record pronunciation stop save pronunciation vocabulary audio spoken forms",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What editing restrictions apply to vocabulary entries I did not add?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "edit only words you added cannot edit others vocabulary restrictions",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I insert a custom vocabulary word while dictating in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "insert vocabulary word place cursor turn on dictation microphone say spoken form",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What is the difference between disabling and deleting a vocabulary word?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "disable delete vocabulary remains disabled list permanently deleted cannot recognize",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/ff03f6f4-3e49-4d79-9b23-e204c313c5bf": {
+    "score": 80,
+    "retrieved_count": 8,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I submit product feedback for Microsoft Dragon Copilot using the help icon?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "help icon submit product feedback dragon copilot stars comment submit",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Where do I rate Dragon Copilot with stars when submitting product feedback?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "feedback form number of stars rate dragon copilot submit",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How can I provide AI feedback on a generated note or orders in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "ai feedback note orders tab feedback icon dragon copilot submit",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I give feedback on a specific AI response card in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "feedback icon bottom right response card ai response dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What does the article say about feature availability and licensing for Dragon Copilot?",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "availability features depends on your license configuration contact administrator",
+        "retrieved": false,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/da9d700b-8463-4185-bf92-e3f4ab29f685": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I add a Spoken form when creating a Dragon Copilot Workflow?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot workflows add spoken form create",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Which step types can I add to a Dragon Copilot Workflow?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot workflows add steps open app wait enter text",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What limit applies to assigning keyboard shortcuts to Dragon Copilot Workflows?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot workflow keyboard shortcuts one shortcut per workflow",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I configure a PowerMic or SpeechMike button to run a Dragon Copilot Workflow?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot mic buttons button actions run workflow assign",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Can I edit a Workflow shared with me in Dragon Copilot if it's locked?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot shared workflow locked read-only cannot edit",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/eaf5dbca-62e6-44e8-a71b-7e8b02df3718": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How does Dragon Copilot save microphone selections across different platforms?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "microphone selection saved per platform dragon copilot settings",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What occurs in Dragon Copilot when the selected microphone becomes disconnected?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "microphone disconnected dragon attempt connect browser default recording saved",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What steps are required to pair the Mobile mic with Dragon Copilot workstation?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "mobile mic pair dragon copilot select mobile mic connect mobile app",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Can Mobile mic be used for ambient recording in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "mobile mic ambient recording supported disabled cannot use dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do you enable and customize PowerMic or SpeechMike button actions in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "enable buttons configure button actions powermic speechmike microphone settings",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/14ecf570-977d-4049-92e7-1147400382ae": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "Which Library item types can I duplicate in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "duplicate library items texts prompts templates workflows dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Can I duplicate Library items that were shared by my organization in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "duplicate shared by your organization library items dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What elements are copied when Dragon Copilot duplicates a Library item?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "duplicate creates copy description content steps workflows dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What exact steps do I follow to duplicate a Library item in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "open item select ellipsis duplicate name save library dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "When should I name the duplicated Library item in Dragon Copilot for easier management?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "tip name duplicated item right away easier find manage dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/250ff31b-2681-4f2d-899d-dd408465a070": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I disable the Dragon Copilot Web Extension for a specific website?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot web extension disable specific website extension enabled toolbar",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What does the PowerMic connected banner mean in Dragon Copilot and how should I respond?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "powerMic connected banner dragon copilot microphone conflicts disable buttons change microphone",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I disable microphone buttons in Dragon Medical One using a keyboard shortcut?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "disable microphone buttons dragon medical one ctrl alt p hotkey",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I restore microphone access for the Dragon Copilot web app in Microsoft Edge?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "edge site permissions microphone customised behaviours not allowed delete block list refresh",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Which Dragon Copilot keyboard shortcuts require the app window to have focus on desktop?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot desktop keyboard shortcuts require window focus new session cancel requests go to prompt field",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/293b834e-3c5b-4a75-ab53-289a22e26226": {
+    "score": 60,
+    "retrieved_count": 6,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "What voice command starts ambient recording in Dragon Copilot and what's the mobile limitation?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "start ambient recording mobile not available patient consent",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Which voice command opens the dictation clipboard in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "open show dictation clipboard dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What occurs when you say \"minimize window\" in Dragon Copilot desktop compact versus standard view?",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "minimize window compact view standard view taskbar",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Which Dragon Copilot desktop voice command transfers a specific note section to the EHR?",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "transfer section transfer selected transfer all ehr desktop",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do move/go to commands behave in split view when navigating note sections in Dragon Copilot web?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "move go to split view note tab current version left pane",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/d61dfc48-97d5-4e1e-91d6-e8571bed9eb8": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I switch Dragon Copilot from standard view to compact view?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot standard view down arrow compact view switch",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What happens when I minimize Dragon Copilot while a recording is active?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot minimize icon recording switches compact view behavior",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I return from compact view to the previous Dragon Copilot view?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot compact view expand icon return previous view",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How does narrow view arrange Dragon Copilot and other open apps?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot narrow view docked right apps resized moved left",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Which view is described as most similar to a Dragon Medical One experience?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot compact view most similar dragon medical one experience",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/0cd47900-93b9-45bb-a0e4-a7d3cb42125d": {
+    "score": 90,
+    "retrieved_count": 9,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do compound prompts display their AI responses in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "timeline tab dragon copilot ai responses display",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I save a custom compound prompt to the Dragon Copilot Library?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "save compound prompt library dragon copilot save",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Which actions can a Dragon Copilot compound prompt perform in a single run?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "create supporting documents edit note extract summary search trusted sources coding tasks",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I configure a compound prompt to run automatically after style preferences in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "style panel configure run prompt automatically after apply style preferences",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How should I structure a compound prompt to add ICD-10 codes next to diagnoses in the A&P?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "add icd-10 codes a&p next to relevant diagnosis compound prompt structure",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/3a076626-45ee-40ca-b49b-76a197c6a745": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "When does Dragon Copilot trigger a safe web search for clinical queries?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot trigger safe web search timeline trusted sources",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How does Dragon Copilot protect PHI when performing a safe web search?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "phi protection query minimization identity removal tls encryption",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What HTTPS and SSL website checks does Dragon Copilot enforce for web results?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "https only ssl certificate checks invalid expired excluded",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How are web-derived responses labeled and verified inside Dragon Copilot AI Chat?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "web sources labeled provenance assurance reference citations links verified",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I allow a web response from the Timeline tab in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "timeline tab allow web response select allow web response verify settings",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/a71e3036-d42c-4c54-86cd-9bdd3f209f22": {
+    "score": 90,
+    "retrieved_count": 9,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I switch Environment ID in Dragon Copilot on desktop or web?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "environment id dropdown settings general reload app desktop web",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What action is required after selecting an environment on mobile Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "mobile relaunch app manually sign back in switch environment",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How does Dragon Copilot handle new sessions and recordings when the device goes offline?",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "offline new sessions recordings associate device environment went offline",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "When does the non-default environment banner reappear after dismissal or logout?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "banner message dismisses log out reappear next time switch non-default",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What happens and what options appear if my current environment is deleted by the organization?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "deleted environment automatically placed default environment reset message continue change environment",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/5839aad4-827b-49fc-8a5b-848b5f7ff2b9": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "What does the Dragon Copilot icon indicate about an item's editability?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot icon read only customizable templates",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What distinguishes the Shared icon from the Dragon Copilot icon?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "shared icon administrator read only difference dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Which icon signifies that an item cannot be edited because of restrictions?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "lock icon cannot edited item restrictions",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How is the Star icon used to mark items in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "star icon favorites mark items dragon copilot",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Are Dragon Copilot product items always read only except customizable templates?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot product items always read only customizable templates",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/7b23a9b2-11e2-41d5-99e2-cb228831724a": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I switch my Dragon Copilot user experience to Physician?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "settings profile user experience dropdown select physician",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Where in the UI is the User experience dropdown located for switching roles?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "settings profile dropdown user experience location",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What changes after selecting Nurse in Dragon Copilot user experience?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "nurse user experience changes settings configuration role specific workflows",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "When is the User experience dropdown available for switching between Physician and Nurse?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dropdown available only if have both physician nurse access",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Does switching user experience apply different role-specific workflows and resources immediately?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "switches appropriate settings configuration role specific workflows resources immediately",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/9bf5a085-d35d-4c80-847e-5d96e1e2bda1": {
+    "score": 90,
+    "retrieved_count": 9,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I filter Library Texts in Dragon Copilot to show specific groups?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "filter library texts dragon copilot filter icon check groups",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Where is the Filter icon located for adjusting views across Dragon Copilot lists?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "filter icon location dragon copilot lists adjust view",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I include or exclude group categories when filtering Library Texts?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "include exclude group categories filtering library texts check uncheck",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Can Dragon Medical One Auto-texts appear in Dragon Copilot Library > Texts?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon medical one auto-texts dragon copilot library texts my items",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Do filters in Dragon Copilot affect all list views or only Library Texts?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "filters affect all list views dragon copilot library texts scope",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/b426fe85-0c3b-4afd-a060-7d4dd058fe40": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I create a memo using the Memos tab and Add memo button?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "add memo button memos tab create memo",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Does memo content auto-save when I type or dictate in the memo?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "auto saved type dictate memo content auto-save",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Can I rename a memo after creating it for clarity in Memos?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "rename memo optional clarity memos tab",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Where are memos stored and do they become part of the medical record?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "patient session stored not part medical record copy paste",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What types of clinical details can I capture in a memo for encounters?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "lab results personal reminders clinical details library encounter memo",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/7cc8b76d-a7ae-4d43-a4e8-740a8b28fe0b": {
+    "score": 100,
+    "retrieved_count": 10,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How does Dragon Copilot identify fields using delimiter characters?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "dragon copilot delimiters brackets settings general identify fields",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I insert a field into a Text in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "insert field text library content cursor delimiters save",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What is the pipe character usage for multiple field options in Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "pipe character field options default text separated pipe",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How can I navigate between fields in a Text using Dragon Copilot?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "navigate next field voice command keyboard shortcut microphone buttons",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What happens when an administrator shares a Text with different delimiter characters?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "administrator shared text different delimiters create personal copy replace delimiters",
+        "retrieved": true,
+        "chunks_returned": 5
+      }
+    ]
+  },
+  "https://support.microsoft.com/en-us/topic/92e433b8-7198-424f-9877-2b338578579f": {
+    "score": 70,
+    "retrieved_count": 7,
+    "total_questions": 10,
+    "error_count": 0,
+    "questions": [
+      {
+        "text": "How do I select which Dragon Copilot documents auto-generate after ambient recordings?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "select documents auto generate ambient recording settings checkbox",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "What happens to my manual edits if a new Dragon Copilot document version is generated?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "manual edits overwritten new document version generated version history copy back",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How can I compare a previous Dragon Copilot document version to the current version?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "version history compare split view side by side restore this version",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "Which Dragon Copilot profile setting determines the AI model for specialty-specific documents?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "primary specialty setting profile determines ai model note generation",
+        "retrieved": false,
+        "chunks_returned": 5
+      },
+      {
+        "text": "How do I transfer a generated Dragon Copilot document into my EMR?",
+        "retrieved": true,
+        "chunks_returned": 5
+      },
+      {
+        "text": "copy button keyboard shortcut paste emr toolbar select copy multiple documents",
+        "retrieved": false,
+        "chunks_returned": 5
+      }
+    ]
   }
 }

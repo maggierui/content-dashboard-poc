@@ -116,9 +116,8 @@ C_SCORES_FILE = ROOT / "data" / "scores" / "ai_readiness_scores_raw_md.json"
 
 DIMENSIONS = [
     "heading_hierarchy", "chunk_autonomy", "context_completeness",
-    "entity_normalization", "disambiguation", "semantic_density",
-    "structured_data_utilization", "query_answer_alignment",
-    "redundancy_efficiency", "cross_section_integrity",
+    "entity_normalization", "disambiguation",
+    "structured_data_utilization",
 ]
 DIM_LABELS = [
     ("Heading Hierarchy",          "Clear H1→H2→H3 for meaningful chunking"),
@@ -126,11 +125,7 @@ DIM_LABELS = [
     ("Context Completeness",       "Key terms and prereqs explained inline"),
     ("Entity Normalization",       "Consistent naming for products/features"),
     ("Disambiguation",             "Ambiguous terms and pronouns resolved"),
-    ("Semantic Density",           "High info-to-noise; no filler"),
     ("Structured Data Utilization","Tables and lists over dense prose"),
-    ("Query-Answer Alignment",     "Answers questions users actually ask"),
-    ("Redundancy Efficiency",      "No repetition diluting retrieval signal"),
-    ("Cross-Section Integrity",    "No contradictions across sections"),
 ]
 
 

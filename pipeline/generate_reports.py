@@ -44,11 +44,7 @@ DIMENSION_LABELS = {
     "context_completeness": "Context Completeness",
     "entity_normalization": "Entity Normalization",
     "disambiguation": "Disambiguation",
-    "semantic_density": "Semantic Density",
     "structured_data_utilization": "Structured Data",
-    "query_answer_alignment": "Query-Answer Alignment",
-    "redundancy_efficiency": "Redundancy Efficiency",
-    "cross_section_integrity": "Cross-Section Integrity",
 }
 
 DIMENSION_ORDER = list(DIMENSION_LABELS.keys())

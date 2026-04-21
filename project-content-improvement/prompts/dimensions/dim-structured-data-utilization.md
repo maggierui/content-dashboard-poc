@@ -9,35 +9,45 @@ Apply shared foundation rules (style, recommendation stability).
 
 ## Focus
 
-Evaluate **format and structure**: tables, parameter/value lists, numbered steps, and code quality. Surface rare/high-signal parameters or constraints early. When applicable, include supported operating systems/platforms and version requirements in a concise list or table to make platform prerequisites retrievable. Do not flag content-type misalignment or filler prose.
+Evaluate **format and structure** in a content type-aware manner: tables, parameter/value lists, and code retrievability. When applicable, include supported operating systems/platforms and version requirements in a concise list or table to make platform prerequisites retrievable. This dimension does not assess prose quality, conceptual depth, or content strategy.
 
-## Key criteria
+## Flag
 
-Evaluate structured data utilization against these rules. **Apply rules appropriate to the content type** — procedural rules (numbered steps, success criteria) apply to how-to and quickstart articles; parameter/table rules apply broadly; conceptual articles might not require procedural structure.
+**Apply rules appropriate to the content type** — parameter/table rules apply broadly; conceptual articles might not require the same structure as procedural articles.
 
-1. **Understand code handling** – Code sample handling is size-aware. Small code snippets (≤100 tokens) are included in the chunk and may serve as lexical anchors (commands, flags, short examples). Large code blocks (≥100 tokens) are excluded from indexing. If an article contains multiple large code blocks, inform but do not flag as long as surrounding context is clear.
-2. **Surface parameters in plain text** – Favor placing critical defaults, parameters, and constraints in plain text or tables so anchors survive even when large code is removed.
-3. **Validate image alt text** – When images are present, verify that `alt` text carries concise, factual anchors (entities, parameter names/values, UI states) rather than decorative captions.
-4. **Convert prose to structure** – Recommend conversion to a table/list when prose includes multiple related parameters or option/constraint pairs (suggest threshold: ≥3 related parameters); for single-parameter defaults or a lone option, prose is acceptable.
-5. **Require success criteria** – Flag procedures lacking explicit success criteria (e.g., an end-state, verification command or UI confirmation) and suggest adding a one-line success check.
-6. **Use numbered steps** – Prefer numbered steps when there are more than five sequential actions or when steps require parameters/flags to be specified.
-7. **Flag oversized tables** – When a table clearly exceeds ~400 tokens (the usable budget after H1+H2 prepend), flag it. Continuation chunks lose the header row, making rows uninterpretable. Only flag when the table is unambiguously too large (rough guide: >8 rows at 5+ columns, or >15 rows at 3–4 columns). Suggest splitting by logical group under separate headings, or adding a one-line prose summary before the table so key entities survive in the first chunk.
+- **Critical parameters buried in code blocks** — A large code block (≥100 tokens) contains critical defaults, configuration values, or constraints with no accompanying prose or table summary. "Surrounding context is clear" requires an explicit prose or table restatement of the key values — nearby text that does not name the values does not qualify.
+- **Dense parameter prose** — Parameters, defaults, or option/constraint pairs buried in dense prose where individual values are hard to locate. Flag when a paragraph contains 3 or more parameters or parameter/description pairs that require significant parsing to extract.
+- **Code snippets with low retrievability** — Small snippets (≤100 tokens) that use unlabeled placeholders (e.g., `<your-value>`) with no concrete prose example nearby, or that omit OS/shell/version qualifiers when the article itself shows the behavior varies by environment.
+- **Large tables without retrieval context** — The chunker splits tables exceeding approximately 500 tokens (roughly 50+ rows, or fewer rows with consistently long cell values — full paths, URLs, or multi-sentence descriptions) into ~250-token pieces, repeating column headers on each piece. Flag a table when it is large enough to be split **and** the column labels are too generic to identify the entity or attribute being documented (e.g., bare "Name," "Value," "Type" without qualifying context) with no introductory sentence preceding the table to supply that entity context. When column labels are specific and self-describing, split pieces are retrievable without surrounding prose.
 
-**Helpful checks for small code snippets (≤100 tokens):**
+**Before concluding your analysis:** Scan every large code block (≥100 tokens) for critical defaults or configuration values — check whether a prose or table restatement of those specific values exists nearby; surrounding text that does not name the values does not qualify. Also scan for bullet lists with ≥3 items following a consistent name + description pattern; these are easy to overlook when the prose reads naturally. For small snippets (≤100 tokens), check for unlabeled placeholders with no concrete example nearby. Scan for tables likely to be split by the chunker — roughly 50+ rows, or fewer rows with consistently long cell values (full paths, URLs, or multi-sentence descriptions) — and check whether the column labels are specific enough to attribute split pieces without an introductory sentence.
 
-- Use concise, copy‑paste friendly commands with explicit flags; avoid vague prose references.
-- Keep the snippet immediately adjacent to the parameters/constraints it demonstrates so lexical anchors (names, flags, values) co‑locate with the explanation.
-- Add clear qualifiers nearby (OS/shell/version/region/SKU) when behavior differs across variants to reduce false positives in hybrid retrieval.
-- Multi‑line examples are common in languages like .NET/Python; do not flag small, multi-line snippets when focused and well-formed. For long CLI examples, prefer splitting into clear single‑line steps while staying ≤100 tokens per snippet.
-- Prefer parameterized examples over placeholders; when placeholders are necessary, label them explicitly (e.g., `<RESOURCE_GROUP>`), and include one concrete example value in prose to strengthen anchors.
-- Include one short expected output line or success indicator (command output, return code, UI state) in prose near the snippet to enable answer extraction even if the code is removed.
-- Avoid environment‑specific assumptions (paths, profiles) unless qualified; if required, state the preconditions in a single sentence near the snippet.
-- Keep tokens tight: remove non‑essential comments/whitespace; use the smallest snippet that still demonstrates the actionable step.
-- Flag copy-paste breaking issues: command typos (e.g., `az stroage`), typographic characters (en-dashes, curly quotes instead of hyphens/straight quotes), and formatting artifacts (stray backticks, broken escape sequences).
+## Don't flag
+
+- A short paragraph or single parameter stated clearly in prose — prose is acceptable when the value is easy to locate.
+- Multiple large code blocks (≥100 tokens) when surrounding context is clear — note their presence but do not flag.
+- Large tables (50+ rows or long cell values) where column labels are specific enough to identify the entity and attribute — split pieces are self-attributing even without an introductory sentence.
+- Smaller tables regardless of surrounding prose — below the split threshold, the table is always retrieved as a single unit with its full context.
+- Content-type misalignment or filler prose — out of scope for this dimension.
+- Conceptual articles that don't follow procedural table/list conventions — rules apply to content type.
+
+## Fix preference
+
+- Dense parameter prose (3+ parameters) → convert to a table or list
+- Critical values buried in large code blocks → add a prose or table restatement adjacent to the block naming the specific values
+- Large tables without retrieval context → make column labels specific enough to identify the entity and attribute (e.g., "VM Size Name" instead of "Name"); add an introductory sentence naming the entity when column labels alone cannot provide attribution; break the table into smaller tables if logical subdivisions exist
+- Code snippets with low retrievability → replace unlabeled placeholders with concrete examples in adjacent prose; add OS/shell/version qualifiers if the article shows behavior varies by environment
 
 ## Quality benchmark
 
-A high-quality article has: key parameters/constraints surfaced early in tables/lists; procedures numbered with success criteria; critical defaults in plain text; alt text with factual anchors.
+A high-quality article has: key parameters/constraints surfaced early in tables/lists; critical defaults in plain text.
+
+## Retrieval benefits
+
+- Tables and lists create discrete lexical anchors — individual cells index as separate token sequences, making specific values retrievable even when surrounding code blocks are excluded.
+- Plain-text restatements of critical defaults survive code block exclusion (blocks ≥100 tokens are not indexed).
+- Introductory sentences before large tables bind the table to its entity name, preserving attribution when the table spans chunk boundaries.
+- Explicit placeholder examples and environment qualifiers in small snippets ensure the snippet's scope appears in indexed tokens, not just in prose that may land in a different chunk.
 
 ## Output format (JSON)
 
@@ -58,3 +68,4 @@ Return ONLY valid JSON (no markdown fences).
 
 - Set `"recommendations": []` if the article meets the quality benchmark OR no high-confidence issues are found.
 - Include multiple recommendations only when several distinct, high-confidence fixes are needed.
+
