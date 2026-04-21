@@ -21,11 +21,7 @@ DIMENSION_PROMPTS = {
     "context_completeness": "dimensions/dim-context-completeness.md",
     "entity_normalization": "dimensions/dim-entity-normalization.md",
     "disambiguation": "dimensions/dim-disambiguation.md",
-    "semantic_density": "dimensions/dim-semantic-density.md",
     "structured_data_utilization": "dimensions/dim-structured-data-utilization.md",
-    "query_answer_alignment": "dimensions/dim-query-answer-alignment.md",
-    "redundancy_efficiency": "dimensions/dim-redundancy-efficiency.md",
-    "cross_section_integrity": "dimensions/dim-cross-section-integrity.md",
 }
 
 # All dimensions in evaluation order
@@ -72,12 +68,15 @@ async def call_dimension_analysis(
         return result
     try:
         print(f"  Analyzing dimension: {dimension}...")
-        
-        response = await client.responses.create(
-            model=deployment,
-            input=create_dimension_messages(dimension, content),
-            max_output_tokens=4000,
-            reasoning={"effort": "medium"},
+
+        response = await asyncio.wait_for(
+            client.responses.create(
+                model=deployment,
+                input=create_dimension_messages(dimension, content),
+                max_output_tokens=4000,
+                reasoning={"effort": "medium"},
+            ),
+            timeout=120,
         )
 
         # Extract response text from Responses API structure

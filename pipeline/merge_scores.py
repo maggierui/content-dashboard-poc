@@ -16,6 +16,9 @@ import pandas as pd
 ROOT = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(ROOT))
 
+from pipeline.engagement_inputs import load_engagement_csvs
+from pipeline.url_utils import normalize_url
+
 SCORES_DIR = ROOT / "data" / "scores"
 AI_READINESS_FILE = SCORES_DIR / "ai_readiness_scores.json"
 RETRIEVABILITY_FILE = SCORES_DIR / "retrievability_scores.json"
@@ -66,14 +69,49 @@ def load_retrievability(path: Path) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def build_enriched_csv(
+    input_paths: list[str | Path],
+    output_path: Path = DEFAULT_OUTPUT,
+    ai_readiness_path: Path = AI_READINESS_FILE,
+    retrievability_path: Path = RETRIEVABILITY_FILE,
+) -> Path:
+    """Merge engagement CSVs with scores and write enriched CSV. Returns output path."""
+    df = load_engagement_csvs(input_paths)
+    df["Url"] = df["Url"].map(normalize_url)
+
+    ai_df = load_ai_readiness(ai_readiness_path)
+    if not ai_df.empty:
+        ai_df["Url"] = ai_df["Url"].map(normalize_url)
+    retr_df = load_retrievability(retrievability_path)
+    if not retr_df.empty:
+        retr_df["Url"] = retr_df["Url"].map(normalize_url)
+
+    result = df.copy()
+    if not ai_df.empty:
+        result = result.merge(ai_df, on="Url", how="left")
+    else:
+        result["AIReadiness"] = None
+        result["AIReadiness_WeakestDim"] = None
+        result["AIReadiness_TotalRecs"] = None
+
+    if not retr_df.empty:
+        result = result.merge(retr_df, on="Url", how="left")
+    else:
+        result["Retrievability"] = None
+        result["Retrievability_Retrieved"] = None
+        result["Retrievability_Total"] = None
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    result.to_csv(output_path, index=False)
+    return output_path
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Merge AI Readiness + Retrievability scores into the Power BI CSV"
     )
-    parser.add_argument("--input", "-i", required=True,
-                        help="Path to Power BI CSV export")
-    parser.add_argument("--url-col", default="Url",
-                        help="URL column name in the CSV (default: Url)")
+    parser.add_argument("--input", "-i", nargs="+", required=True,
+                        help="One or more Power BI CSV exports")
     parser.add_argument("--ai-readiness", default=str(AI_READINESS_FILE),
                         help="AI readiness scores JSON path")
     parser.add_argument("--retrievability", default=str(RETRIEVABILITY_FILE),
@@ -82,32 +120,29 @@ def main() -> None:
                         help="Output enriched CSV path")
     args = parser.parse_args()
 
-    # Load the main engagement CSV
-    df = pd.read_csv(args.input)
-    if args.url_col not in df.columns:
-        print(f"Error: column '{args.url_col}' not found. "
-              f"Columns: {list(df.columns)}")
+    df = load_engagement_csvs(args.input)
+    if "Url" not in df.columns:
+        print("Error: combined engagement data does not contain a Url column")
         sys.exit(1)
-    print(f"Loaded {len(df)} rows from {args.input}")
+    print(f"Loaded {len(df)} rows from {len(args.input)} input file(s)")
 
-    # Normalise URL column to strip trailing slashes for consistent joins
-    df[args.url_col] = df[args.url_col].str.rstrip("/")
+    df["Url"] = df["Url"].map(normalize_url)
 
     # Load scores
     ai_df = load_ai_readiness(Path(args.ai_readiness))
     if not ai_df.empty:
-        ai_df["Url"] = ai_df["Url"].str.rstrip("/")
+        ai_df["Url"] = ai_df["Url"].map(normalize_url)
     retr_df = load_retrievability(Path(args.retrievability))
     if not retr_df.empty:
-        retr_df["Url"] = retr_df["Url"].str.rstrip("/")
+        retr_df["Url"] = retr_df["Url"].map(normalize_url)
 
     # Merge on URL (left join to keep all rows from the original CSV)
     result = df.copy()
 
     if not ai_df.empty:
         result = result.merge(
-            ai_df.rename(columns={"Url": args.url_col}),
-            on=args.url_col,
+            ai_df,
+            on="Url",
             how="left",
         )
     else:
@@ -117,8 +152,8 @@ def main() -> None:
 
     if not retr_df.empty:
         result = result.merge(
-            retr_df.rename(columns={"Url": args.url_col}),
-            on=args.url_col,
+            retr_df,
+            on="Url",
             how="left",
         )
     else:

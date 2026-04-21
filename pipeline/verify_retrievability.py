@@ -18,7 +18,6 @@ Usage:
 """
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -28,16 +27,11 @@ sys.path.insert(0, str(ROOT))
 from dotenv import load_dotenv
 load_dotenv(ROOT / ".env")
 
+from pipeline.url_utils import extract_url_path, normalize_url, url_matches_chunk_url
+
 QUESTIONS_FILE = ROOT / "data" / "scores" / "questions.json"
 SCORES_FILE = ROOT / "data" / "scores" / "retrievability_scores.json"
 TOP_K = 5
-
-
-def extract_url_path(url: str) -> str:
-    path = re.sub(r"https?://[^/]+", "", url)
-    path = path.split("?")[0].rstrip("/")
-    path = re.sub(r"^/[a-z]{2}-[a-z]{2}/", "/", path)
-    return path
 
 
 def load_json(path: Path) -> dict:
@@ -110,7 +104,7 @@ def cmd_verify(url: str, questions_data: dict, scores: dict) -> None:
     from common.knowledge_service import process_single_question
 
     # Normalise URL
-    url = url.rstrip("/")
+    url = normalize_url(url)
 
     questions = questions_data.get(url)
     if not questions:
@@ -163,7 +157,7 @@ def cmd_verify(url: str, questions_data: dict, scores: dict) -> None:
         print(f"  KS returned {len(chunks)} chunks:")
         for j, chunk in enumerate(chunks, 1):
             chunk_url = chunk.get("url", "")
-            match = article_path in chunk_url
+            match = url_matches_chunk_url(url, chunk_url)
             marker = "  MATCH" if match else ""
             print(f"    [{j}] {chunk_url[:90]}{marker}")
             if match:

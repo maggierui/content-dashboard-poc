@@ -1,5 +1,5 @@
 """
-run_ai_readiness.py - Grade articles across 10 RAG-readiness dimensions.
+run_ai_readiness.py - Grade articles across 6 RAG-readiness dimensions.
 
 Usage:
     # Default (direct async calls, any number of articles):
@@ -20,7 +20,6 @@ import os
 import sys
 from pathlib import Path
 
-import pandas as pd
 from dotenv import load_dotenv
 
 # ── project root on sys.path ──────────────────────────────────────────────────
@@ -34,6 +33,8 @@ sys.path.insert(0, str(GRADER_DIR))
 load_dotenv(ROOT / ".env")
 
 from analyze_content import analyze_dimensions as analyze_dimensions_for_content, ALL_DIMENSIONS
+from pipeline.engagement_inputs import load_unique_urls
+from pipeline.url_utils import url_to_slug
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 SCORES_DIR = ROOT / "data" / "scores"
@@ -52,17 +53,6 @@ def assign_band(total_recs: int) -> str:
     if total_recs <= BAND_MEDIUM_MAX:
         return "Medium"
     return "Low"
-
-
-def url_to_slug(url: str) -> str:
-    """Reproduce the slug logic from fetch_articles.py."""
-    import hashlib, re
-    slug = re.sub(r"https?://", "", url)
-    slug = re.sub(r"[^a-zA-Z0-9_\-]", "_", slug)
-    slug = re.sub(r"_+", "_", slug).strip("_")
-    short_hash = hashlib.md5(url.encode()).hexdigest()[:8]
-    return f"{slug[:160]}_{short_hash}"
-
 
 def find_cache_file(url: str, cache_dir: Path) -> Path | None:
     slug = url_to_slug(url)
@@ -103,6 +93,7 @@ async def run_direct(
     urls: list[str],
     cache_dir: Path,
     existing: dict,
+    output_path: Path = OUTPUT_FILE,
 ) -> dict:
     """Run AI Readiness grading directly (no batch API)."""
     from openai import AsyncAzureOpenAI
@@ -148,10 +139,15 @@ async def run_direct(
         try:
             score = await score_article(client, deployment, url, content)
             results[url] = score
-            print(f"    → {score['band']} ({score['total_recommendations']} recs, "
+            print(f"    -> {score['band']} ({score['total_recommendations']} recs, "
                   f"weakest: {score['weakest_dimension']})")
         except Exception as exc:
             print(f"    Error: {exc}")
+
+        # Save incrementally after each article so progress is never lost
+        output_path.write_text(
+            json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
 
     return results
 
@@ -237,10 +233,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Run AI Readiness scoring on cached articles"
     )
-    parser.add_argument("--input", "-i", required=True,
-                        help="Path to Power BI CSV export")
-    parser.add_argument("--url-col", default="Url",
-                        help="URL column name (default: Url)")
+    parser.add_argument("--input", "-i", nargs="+", required=True,
+                        help="One or more Power BI CSV exports")
     parser.add_argument("--cache-dir", default=str(CACHE_DIR),
                         help="Article cache directory")
     parser.add_argument("--output", default=str(OUTPUT_FILE),
@@ -252,12 +246,8 @@ def main() -> None:
                              "(use this to populate recommendations_by_dimension in existing scores)")
     args = parser.parse_args()
 
-    df = pd.read_csv(args.input)
-    if args.url_col not in df.columns:
-        print(f"Error: column '{args.url_col}' not found. "
-              f"Columns: {list(df.columns)}")
-        sys.exit(1)
-    urls = df[args.url_col].dropna().unique().tolist()
+    urls = load_unique_urls(args.input)
+    print(f"Loaded {len(urls)} unique URLs from {len(args.input)} input file(s)")
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -276,12 +266,12 @@ def main() -> None:
     if args.batch:
         final_scores = run_batch(urls, cache_dir, existing)
     else:
-        final_scores = asyncio.run(run_direct(urls, cache_dir, existing))
+        final_scores = asyncio.run(run_direct(urls, cache_dir, existing, output_path))
 
     output_path.write_text(
         json.dumps(final_scores, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    print(f"\nSaved {len(final_scores)} scores → {output_path}")
+    print(f"\nSaved {len(final_scores)} scores -> {output_path}")
 
 
 if __name__ == "__main__":

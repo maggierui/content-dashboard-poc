@@ -4,7 +4,7 @@ run_retrievability.py - Generate questions per article then hit-test the Knowled
 Pipeline:
   Step 2a: Generate questions per article via concurrent direct API calls (default)
            or Azure OpenAI Batch API (--batch, requires a Global Batch deployment)
-  Step 2b: Save questions checkpoint → data/scores/questions.json
+  Step 2b: Save questions checkpoint -> data/scores/questions.json
   Step 2c: Query Knowledge Service for each question
   Step 2d: Calculate hit-rate score (0–100)
 
@@ -22,7 +22,6 @@ import time
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-import pandas as pd
 from dotenv import load_dotenv
 
 # ── project root on sys.path ──────────────────────────────────────────────────
@@ -35,6 +34,8 @@ from common.knowledge_service import process_single_question
 from common.send_openai_request import create_client, send_response_request
 from common.prompts import load_prompt
 from common.batch import write_jsonl, send_batch, get_batch_results
+from pipeline.engagement_inputs import load_unique_urls
+from pipeline.url_utils import url_matches_chunk_url, url_to_slug, infer_platform
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 SCORES_DIR = ROOT / "data" / "scores"
@@ -45,16 +46,6 @@ TOP_K = 5
 MAX_WORKERS = 10
 BATCH_SIZE = 10
 BATCH_DELAY = 4  # seconds between KS batches
-
-
-def url_to_slug(url: str) -> str:
-    import hashlib
-    slug = re.sub(r"https?://", "", url)
-    slug = re.sub(r"[^a-zA-Z0-9_\-]", "_", slug)
-    slug = re.sub(r"_+", "_", slug).strip("_")
-    short_hash = hashlib.md5(url.encode()).hexdigest()[:8]
-    return f"{slug[:160]}_{short_hash}"
-
 
 def find_cache_file(url: str, cache_dir: Path) -> Path | None:
     slug = url_to_slug(url)
@@ -93,17 +84,6 @@ def parse_questions_from_response(response: str) -> list[str]:
             extracted.append(m_bm25.group(1).strip())
     return [q for q in extracted if q]
 
-
-def extract_url_path(url: str) -> str:
-    """Extract the path segment to check for in KS chunk URLs."""
-    # Strip locale prefix (e.g. /en-us/) and query strings
-    path = re.sub(r"https?://[^/]+", "", url)
-    path = path.split("?")[0].rstrip("/")
-    # Remove locale prefix like /en-us
-    path = re.sub(r"^/[a-z]{2}-[a-z]{2}/", "/", path)
-    return path
-
-
 # ── Step 2a: Question generation ─────────────────────────────────────────────
 
 def generate_questions_direct(
@@ -136,7 +116,7 @@ def generate_questions_direct(
             response = send_response_request(deployment, prompt, content, "low", client=client)
             qs = parse_questions_from_response(response)
             qs = qs[:10]  # cap at 10 (5 concise + 5 BM25)
-            print(f"    → {len(qs)} questions for {url[:60]}...")
+            print(f"    -> {len(qs)} questions for {url[:60]}...")
             return url, qs
         except Exception as exc:
             print(f"    Error for {url}: {exc}")
@@ -193,14 +173,14 @@ def generate_questions_batch(
 
 def check_url_in_chunks(article_url: str, chunks: list[dict]) -> bool:
     """Return True if article_url's path appears in any chunk URL."""
-    article_path = extract_url_path(article_url)
-    if not article_path:
-        return False
     for chunk in chunks:
         chunk_url = chunk.get("url", "")
-        if article_path in chunk_url:
+        if url_matches_chunk_url(article_url, chunk_url):
             return True
     return False
+
+
+SMC_FILTER = "site eq 'support.microsoft.com'"
 
 
 def query_ks_for_article(
@@ -219,9 +199,11 @@ def query_ks_for_article(
     retrieved_count = 0
     error_count = 0  # questions where KS returned 0 chunks (suspicious)
 
+    filter_expr = SMC_FILTER if infer_platform(article_url) == "support" else None
+
     for question in questions:
         try:
-            chunks = process_single_question(question, top_k=TOP_K)
+            chunks = process_single_question(question, top_k=TOP_K, filter_expr=filter_expr)
             chunk_count = len(chunks)
             found = check_url_in_chunks(article_url, chunks)
         except Exception as exc:
@@ -309,10 +291,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Run Retrievability scoring (question-gen + KS hit-rate)"
     )
-    parser.add_argument("--input", "-i", required=True,
-                        help="Path to Power BI CSV export")
-    parser.add_argument("--url-col", default="Url",
-                        help="URL column name (default: Url)")
+    parser.add_argument("--input", "-i", nargs="+", required=True,
+                        help="One or more Power BI CSV exports")
     parser.add_argument("--cache-dir", default=str(CACHE_DIR),
                         help="Article cache directory")
     parser.add_argument("--questions-file", default=str(QUESTIONS_FILE),
@@ -328,13 +308,8 @@ def main() -> None:
                              "(catches articles that silently failed due to KS errors)")
     args = parser.parse_args()
 
-    df = pd.read_csv(args.input)
-    if args.url_col not in df.columns:
-        print(f"Error: column '{args.url_col}' not found. "
-              f"Columns: {list(df.columns)}")
-        sys.exit(1)
-    urls = df[args.url_col].dropna().unique().tolist()
-    print(f"Processing {len(urls)} URLs from {args.input}")
+    urls = load_unique_urls(args.input)
+    print(f"Processing {len(urls)} URLs from {len(args.input)} input file(s)")
 
     SCORES_DIR.mkdir(parents=True, exist_ok=True)
     cache_dir = Path(args.cache_dir)
@@ -367,7 +342,7 @@ def main() -> None:
         questions_path.write_text(
             json.dumps(all_questions, indent=2, ensure_ascii=False), encoding="utf-8"
         )
-        print(f"Saved questions checkpoint → {questions_path}")
+        print(f"Saved questions checkpoint -> {questions_path}")
 
     # Filter to only articles that have questions
     article_questions = {
@@ -405,7 +380,7 @@ def main() -> None:
     output_path.write_text(
         json.dumps(existing_scores, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    print(f"\nSaved {len(existing_scores)} retrievability scores → {output_path}")
+    print(f"\nSaved {len(existing_scores)} retrievability scores -> {output_path}")
 
 
 if __name__ == "__main__":

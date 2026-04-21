@@ -5,6 +5,19 @@
 data/cache/*
 !data/cache/.gitkeep
 
+# Raw markdown cache (same treatment as data/cache/)
+data/cache_raw_md/*
+!data/cache_raw_md/.gitkeep
+
+# Git worktrees
+.worktrees/
+
+# Local Claude Code settings
+.claude/
+
+# Pipeline log output
+data/logs/
+
 # Batch job artifacts
 data/scores/*.jsonl
 

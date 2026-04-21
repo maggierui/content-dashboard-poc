@@ -31,7 +31,30 @@ st.set_page_config(
 # ── Constants ─────────────────────────────────────────────────────────────────
 ENRICHED_CSV = ROOT / "data" / "enriched_report.csv"
 RETRIEVABILITY_JSON = ROOT / "data" / "scores" / "retrievability_scores.json"
+AI_READINESS_JSON = ROOT / "data" / "scores" / "ai_readiness_scores.json"
 REPORTS_DIR = ROOT / "data" / "reports"
+ENGAGEMENT_CSVS = [
+    ROOT / "data" / "LMC_Monthly_Engagement_Metrics.csv",
+    ROOT / "data" / "SMC_Monthly_Engagement_Metrics.csv",
+]
+
+# ── Auto-merge: rebuild enriched CSV if any source is newer ───────────────────
+def _needs_rebuild() -> bool:
+    """Return True if enriched CSV is missing or older than any score/input file."""
+    if not ENRICHED_CSV.exists():
+        return True
+    csv_mtime = ENRICHED_CSV.stat().st_mtime
+    sources = [AI_READINESS_JSON, RETRIEVABILITY_JSON] + ENGAGEMENT_CSVS
+    return any(p.exists() and p.stat().st_mtime > csv_mtime for p in sources)
+
+
+if _needs_rebuild():
+    from pipeline.merge_scores import build_enriched_csv
+    existing_csvs = [p for p in ENGAGEMENT_CSVS if p.exists()]
+    if existing_csvs:
+        with st.spinner("Refreshing enriched report (scores or inputs updated)…"):
+            build_enriched_csv(existing_csvs, ENRICHED_CSV)
+        st.cache_data.clear()
 
 BAND_COLORS = {
     "High": "#22c55e",    # green
@@ -43,6 +66,20 @@ BAND_ORDER = ["High", "Medium", "Low"]
 DEPLOYMENT_NAME = os.environ.get("DEPLOYMENT_NAME", "gpt-5-mini")
 
 
+# ── Helpers ────────────────────────────────────────────────────────────────────
+def _coalesce_col(df: pd.DataFrame, primary: str, fallback: str) -> pd.Series:
+    """Return primary column filled with fallback where primary is NaN.
+
+    Used to unify LMC and SMC column name variants
+    (e.g. 'BounceRate' vs 'Bounce Rate') into a single display column.
+    """
+    if primary in df.columns and fallback in df.columns:
+        return df[primary].fillna(df[fallback])
+    if primary in df.columns:
+        return df[primary]
+    return df[fallback] if fallback in df.columns else pd.Series([None] * len(df), index=df.index)
+
+
 # ── Data loading ──────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data() -> pd.DataFrame:
@@ -51,19 +88,64 @@ def load_data() -> pd.DataFrame:
             f"Enriched CSV not found at `{ENRICHED_CSV}`. "
             "Run the pipeline first:\n\n"
             "```\n"
-            "python pipeline/fetch_articles.py --input data/sample_engagement.csv\n"
-            "python pipeline/run_ai_readiness.py --input data/sample_engagement.csv\n"
-            "python pipeline/run_retrievability.py --input data/sample_engagement.csv\n"
-            "python pipeline/merge_scores.py --input data/sample_engagement.csv\n"
+            "python pipeline/fetch_articles.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv\n"
+            "python pipeline/run_ai_readiness.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv\n"
+            "python pipeline/run_retrievability.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv\n"
+            "python pipeline/merge_scores.py --input data/LMC_Monthly_Engagement_Metrics.csv data/SMC_Monthly_Engagement_Metrics.csv\n"
             "```"
         )
         st.stop()
     df = pd.read_csv(ENRICHED_CSV)
+
+    # Backfill missing titles from cached article text files.
+    # The SMC CSV omits titles for some support articles; the cache has them
+    # as the first "## Heading" line from the fetched page.
+    cache_dir = ROOT / "data" / "cache"
+    if cache_dir.exists() and "Title" in df.columns and "Url" in df.columns:
+        missing_mask = df["Title"].isna() | (df["Title"].astype(str).str.strip() == "")
+        for idx in df[missing_mask].index:
+            url = df.at[idx, "Url"]
+            if not isinstance(url, str):
+                continue
+            try:
+                slug = url_to_slug(url)
+            except Exception:
+                continue
+            cache_file = cache_dir / f"{slug}.txt"
+            if not cache_file.exists():
+                continue
+            first_line = cache_file.read_text(encoding="utf-8").split("\n")[0].strip()
+            m = re.match(r"^#+\s+(.*)", first_line)
+            if m:
+                title = m.group(1).strip()
+                df.at[idx, "Title"] = title
+                if "Title_Normalized" in df.columns:
+                    df.at[idx, "Title_Normalized"] = title
+
     # Ensure numeric types
     for col in ["Retrievability", "Retrievability_Retrieved", "Retrievability_Total",
-                "AIReadiness_TotalRecs"]:
+                "AIReadiness_TotalRecs", "PageViews", "Page Views", "PageViews_Normalized"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
+    # Fill PageViewsMoM from SMC's "PVs MoM" column (percentage string) for rows where it is missing
+    if "PVs MoM" in df.columns and "PageViewsMoM" in df.columns:
+        pct = (
+            df["PVs MoM"].astype(str)
+            .str.replace("%", "", regex=False)
+            .str.strip()
+        )
+        df["PageViewsMoM"] = df["PageViewsMoM"].fillna(pd.to_numeric(pct, errors="coerce"))
+
+    # Unified columns — coalesce LMC and SMC column-name variants into single display columns
+    df["BounceRate_N"]       = _coalesce_col(df, "BounceRate",        "Bounce Rate")
+    df["ClickthroughRate_N"] = _coalesce_col(df, "ClickThroughRate",  "Clickthrough Rate")
+    df["ExitRate_N"]         = _coalesce_col(df, "ExitRate",          "Exit Rate")
+    df["InteractionRate_N"]  = _coalesce_col(df, "CopyTryScrollRate", "Play Scroll Interact Rate")
+    df["HelpfulRate_N"]      = _coalesce_col(df, "HelpfulRating",     "Helpful Rate")
+    # "FreshNess" (capital N) is the SMC CSV's column name — not a typo
+    df["Freshness_N"]        = _coalesce_col(df, "Freshness",         "FreshNess")
+    df["Author_N"]           = _coalesce_col(df, "MSAuthor",          "Author")
+
     # Parse date column if present
     for col in df.columns:
         if "date" in col.lower() or "Date" in col:
@@ -199,6 +281,18 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
     st.sidebar.title("Filters")
     filtered = df.copy()
 
+    if "Platform" in df.columns:
+        platforms = sorted(df["Platform"].dropna().unique().tolist())
+        if platforms:
+            selected_platforms = st.sidebar.multiselect(
+                "Platform (default: all sources)",
+                options=platforms,
+                default=platforms,
+                key="platform_filter_v2",
+            )
+            if selected_platforms:
+                filtered = filtered[filtered["Platform"].isin(selected_platforms)]
+
     # Date range filter (if any date column exists)
     date_cols = [c for c in df.columns if pd.api.types.is_datetime64_any_dtype(df[c])]
     if date_cols:
@@ -220,7 +314,7 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
                 ]
 
     # Group filter
-    group_col = next(
+    group_col = "Group_Normalized" if "Group_Normalized" in df.columns else next(
         (c for c in df.columns if c.lower() in ("group", "team", "category")), None
     )
     if group_col:
@@ -229,10 +323,14 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
             "Group", options=groups, default=groups
         )
         if selected_groups:
-            filtered = filtered[filtered[group_col].isin(selected_groups)]
+            # NaN rows (SMC articles — no group classification) always pass through;
+            # they are a separate content system, not an unselected LMC group.
+            filtered = filtered[
+                filtered[group_col].isin(selected_groups) | filtered[group_col].isna()
+            ]
 
     # TopicType filter
-    topic_col = next(
+    topic_col = "TopicType_Normalized" if "TopicType_Normalized" in df.columns else next(
         (c for c in df.columns if "topic" in c.lower() or "type" in c.lower()), None
     )
     if topic_col:
@@ -241,7 +339,10 @@ def render_sidebar(df: pd.DataFrame) -> pd.DataFrame:
             "Topic Type", options=topics, default=topics
         )
         if selected_topics:
-            filtered = filtered[filtered[topic_col].isin(selected_topics)]
+            # NaN rows pass through for the same reason as the Group filter above.
+            filtered = filtered[
+                filtered[topic_col].isin(selected_topics) | filtered[topic_col].isna()
+            ]
 
     # AI Readiness filter
     if "AIReadiness" in df.columns:
@@ -288,10 +389,30 @@ def render_data_table(df: pd.DataFrame) -> None:
     # Build display dataframe
     display = df.copy()
 
+    if "Platform" in display.columns:
+        source_view = st.radio(
+            "Quick source view",
+            options=["All", "Learn only", "Support only", "Support with AI scores"],
+            horizontal=True,
+        )
+        platform_series = display["Platform"].astype(str).str.lower()
+        if source_view == "Learn only":
+            display = display[platform_series == "learn"]
+        elif source_view == "Support only":
+            display = display[platform_series == "support"]
+        elif source_view == "Support with AI scores":
+            ai_mask = (
+                display["AIReadiness"].notna()
+                if "AIReadiness" in display.columns
+                else pd.Series(False, index=display.index)
+            )
+            display = display[(platform_series == "support") & ai_mask]
+        st.caption(f"Showing {len(display):,} rows for: {source_view}")
+
     # Sort controls
     sort_col = st.selectbox(
         "Sort by",
-        options=[c for c in df.columns if c != "AIReadiness"],
+        options=[c for c in display.columns if c != "AIReadiness"],
         index=0,
     )
     sort_asc = st.checkbox("Ascending", value=False)
@@ -310,18 +431,43 @@ def render_data_table(df: pd.DataFrame) -> None:
         display = display.copy()
         display["AIReadiness_Report"] = display["Url"].apply(make_report_url)
 
-    # Columns hidden from the main table (available via detail reports or tooltips)
-    HIDDEN_COLS = {
-        "AIReadiness_ByDimension",
-    }
-    cols_to_show = [c for c in display.columns if c not in HIDDEN_COLS]
+    # Curate the main table to the key fields people actually use in the UI.
+    preferred_order = [
+        "Date",
+        "Platform",
+        "ContentSource",
+        "Group_Normalized",
+        "TopicType_Normalized",
+        "Url",
+        "Title",
+        # Traffic & engagement (right after Title)
+        "PageViews_Normalized",
+        "Visitors",
+        "Freshness_N",
+        "Engagement",
+        "BounceRate_N",
+        "ClickthroughRate_N",
+        "ExitRate_N",
+        "InteractionRate_N",
+        "HelpfulRate_N",
+        "Ratings",
+        # AI scores
+        "AIReadiness",
+        "AIReadiness_TotalRecs",
+        "Retrievability",
+        "AIReadiness_Report",
+        # Authorship & MoM (last)
+        "Author_N",
+        "PageViewsMoM",
+    ]
+    cols_to_show = [c for c in preferred_order if c in display.columns]
 
     # Use st.dataframe with column config for richer display
     col_config = {}
 
     if "AIReadiness" in display.columns:
         col_config["AIReadiness"] = st.column_config.TextColumn(
-            "AI Readiness",
+            "Retrieval Readiness",
             help=(
                 "Band based on total editorial recommendations across 10 RAG-readiness "
                 "dimensions. High = 0–3 recs (well-optimized for AI retrieval), "
@@ -338,14 +484,6 @@ def render_data_table(df: pd.DataFrame) -> None:
                 "redundancy efficiency, and cross-section integrity."
             ),
         )
-    if "AIReadiness_WeakestDim" in display.columns:
-        col_config["AIReadiness_WeakestDim"] = st.column_config.TextColumn(
-            "Weakest Dimension",
-            help=(
-                "The dimension with the highest recommendation count — where improving this "
-                "article will have the greatest impact on AI retrieval quality."
-            ),
-        )
     if "Retrievability" in display.columns:
         col_config["Retrievability"] = st.column_config.ProgressColumn(
             "Retrievability",
@@ -358,22 +496,33 @@ def render_data_table(df: pd.DataFrame) -> None:
             max_value=100,
             format="%d%%",
         )
-    if "Retrievability_Retrieved" in display.columns:
-        col_config["Retrievability_Retrieved"] = st.column_config.NumberColumn(
-            "Retrieved",
-            help=(
-                "Number of test questions (out of 10) that successfully retrieved this article "
-                "from the Knowledge Service."
-            ),
+    if "Platform" in display.columns:
+        col_config["Platform"] = st.column_config.TextColumn("Platform")
+    if "ContentSource" in display.columns:
+        col_config["ContentSource"] = st.column_config.TextColumn("Content Source")
+    if "Group_Normalized" in display.columns:
+        col_config["Group_Normalized"] = st.column_config.TextColumn("Group")
+    if "TopicType_Normalized" in display.columns:
+        col_config["TopicType_Normalized"] = st.column_config.TextColumn("TopicType")
+    if "PageViews_Normalized" in display.columns:
+        col_config["PageViews_Normalized"] = st.column_config.NumberColumn("PageViews")
+    if "Freshness_N" in display.columns:
+        col_config["Freshness_N"] = st.column_config.TextColumn("Freshness")
+    if "BounceRate_N" in display.columns:
+        col_config["BounceRate_N"] = st.column_config.TextColumn("Bounce Rate")
+    if "ClickthroughRate_N" in display.columns:
+        col_config["ClickthroughRate_N"] = st.column_config.TextColumn("Clickthrough Rate")
+    if "ExitRate_N" in display.columns:
+        col_config["ExitRate_N"] = st.column_config.TextColumn("Exit Rate")
+    if "InteractionRate_N" in display.columns:
+        col_config["InteractionRate_N"] = st.column_config.TextColumn(
+            "Copy/Try/Scroll",
+            help="CopyTryScrollRate (Learn) or Play Scroll Interact Rate (Support)",
         )
-    if "Retrievability_Total" in display.columns:
-        col_config["Retrievability_Total"] = st.column_config.NumberColumn(
-            "Total Questions",
-            help=(
-                "Total test questions used (typically 10: 5 natural-language + "
-                "5 BM25 keyword variants)."
-            ),
-        )
+    if "HelpfulRate_N" in display.columns:
+        col_config["HelpfulRate_N"] = st.column_config.TextColumn("Helpful Rate")
+    if "Author_N" in display.columns:
+        col_config["Author_N"] = st.column_config.TextColumn("Author")
 
     # Identify URL column for linking
     url_col = next(
@@ -392,9 +541,29 @@ def render_data_table(df: pd.DataFrame) -> None:
             display_text="Report \u2197",
         )
 
-    if "Retrievability" in df.columns:
-        scored = df["Url"].loc[df["Retrievability"].notna()].nunique()
-        total = df["Url"].nunique()
+    if "AIReadiness" in display.columns:
+        ai_scored = display["Url"].loc[display["AIReadiness"].notna()].nunique()
+        total = display["Url"].nunique()
+        ai_pct = ai_scored / total * 100 if total > 0 else 0
+        st.caption(
+            f"AI Readiness scored: {ai_scored}/{total} unique articles ({ai_pct:.0f}%) "
+            "— includes Microsoft Learn and Microsoft Support rows currently scored"
+        )
+
+    if "Platform" in display.columns:
+        source_counts = (
+            display.groupby("Platform")["Url"].nunique().sort_index().to_dict()
+            if "Url" in display.columns else {}
+        )
+        if source_counts:
+            source_summary = ", ".join(
+                f"{platform}: {count}" for platform, count in source_counts.items()
+            )
+            st.caption(f"Showing — {source_summary}")
+
+    if "Retrievability" in display.columns:
+        scored = display["Url"].loc[display["Retrievability"].notna()].nunique()
+        total = display["Url"].nunique()
         pct = scored / total * 100 if total > 0 else 0
         st.caption(
             f"Retrievability scored: {scored}/{total} unique articles ({pct:.0f}%) "
@@ -474,7 +643,7 @@ def render_portfolio(df: pd.DataFrame) -> None:
     # ── Scatter: Retrievability vs PageViews ──────────────────────────────────
     st.subheader("Retrievability vs. Page Views (colored by AI Readiness)")
 
-    pv_col = next(
+    pv_col = "PageViews_Normalized" if "PageViews_Normalized" in df.columns else next(
         (c for c in df.columns if "pageview" in c.lower() or "page_view" in c.lower()),
         None,
     )
@@ -491,7 +660,7 @@ def render_portfolio(df: pd.DataFrame) -> None:
             color_col = None
             color_map = None
 
-        title_col = next(
+        title_col = "Title_Normalized" if "Title_Normalized" in scatter_df.columns else next(
             (c for c in scatter_df.columns if "title" in c.lower()), None
         )
         url_col = next(
@@ -540,7 +709,7 @@ def render_portfolio(df: pd.DataFrame) -> None:
             st.dataframe(priority_df[display_cols], use_container_width=True)
     else:
         st.info(
-            "Scatter plot requires both `Retrievability` scores and a `PageViews` column."
+            "Scatter plot requires both `Retrievability` scores and a page-views column."
         )
 
 
