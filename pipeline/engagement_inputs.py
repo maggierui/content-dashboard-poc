@@ -53,6 +53,11 @@ def _normalize_frame(df: pd.DataFrame, input_path: Path) -> pd.DataFrame:
     result["Url"] = result[url_col].map(
         lambda value: normalize_url(value) if pd.notna(value) else None
     )
+    # Power BI exports include "Total" aggregate rows and "Applied filters:" disclaimer
+    # rows that have no URL — drop them so they don't leak into the enriched output.
+    result = result[
+        result["Url"].notna() & (result["Url"].astype(str).str.strip() != "")
+    ].reset_index(drop=True)
     result["Title_Normalized"] = (
         result[title_col] if title_col else pd.Series([None] * len(result))
     )

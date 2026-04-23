@@ -409,11 +409,14 @@ def render_data_table(df: pd.DataFrame) -> None:
             display = display[(platform_series == "support") & ai_mask]
         st.caption(f"Showing {len(display):,} rows for: {source_view}")
 
-    # Sort controls
+    # Sort controls — default to PageViews descending so the most-trafficked articles
+    # land at the top of the table.
+    sort_options = [c for c in display.columns if c != "AIReadiness"]
+    default_sort = "PageViews_Normalized" if "PageViews_Normalized" in sort_options else sort_options[0]
     sort_col = st.selectbox(
         "Sort by",
-        options=[c for c in display.columns if c != "AIReadiness"],
-        index=0,
+        options=sort_options,
+        index=sort_options.index(default_sort),
     )
     sort_asc = st.checkbox("Ascending", value=False)
     display = display.sort_values(sort_col, ascending=sort_asc, na_position="last")
@@ -436,18 +439,15 @@ def render_data_table(df: pd.DataFrame) -> None:
         "Date",
         "Platform",
         "ContentSource",
-        "Group_Normalized",
         "TopicType_Normalized",
         "Url",
         "Title",
         # Traffic & engagement (right after Title)
         "PageViews_Normalized",
-        "Visitors",
         "Freshness_N",
         "Engagement",
         "BounceRate_N",
         "ClickthroughRate_N",
-        "ExitRate_N",
         "InteractionRate_N",
         "HelpfulRate_N",
         "Ratings",
@@ -500,8 +500,6 @@ def render_data_table(df: pd.DataFrame) -> None:
         col_config["Platform"] = st.column_config.TextColumn("Platform")
     if "ContentSource" in display.columns:
         col_config["ContentSource"] = st.column_config.TextColumn("Content Source")
-    if "Group_Normalized" in display.columns:
-        col_config["Group_Normalized"] = st.column_config.TextColumn("Group")
     if "TopicType_Normalized" in display.columns:
         col_config["TopicType_Normalized"] = st.column_config.TextColumn("TopicType")
     if "PageViews_Normalized" in display.columns:
@@ -512,8 +510,6 @@ def render_data_table(df: pd.DataFrame) -> None:
         col_config["BounceRate_N"] = st.column_config.TextColumn("Bounce Rate")
     if "ClickthroughRate_N" in display.columns:
         col_config["ClickthroughRate_N"] = st.column_config.TextColumn("Clickthrough Rate")
-    if "ExitRate_N" in display.columns:
-        col_config["ExitRate_N"] = st.column_config.TextColumn("Exit Rate")
     if "InteractionRate_N" in display.columns:
         col_config["InteractionRate_N"] = st.column_config.TextColumn(
             "Copy/Try/Scroll",

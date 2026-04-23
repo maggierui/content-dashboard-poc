@@ -6,8 +6,11 @@ Usage:
     python pipeline/merge_scores.py --input data/sample_engagement.csv --output data/enriched_report.csv
 """
 import argparse
+import csv
 import json
+import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -17,12 +20,89 @@ ROOT = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(ROOT))
 
 from pipeline.engagement_inputs import load_engagement_csvs
-from pipeline.url_utils import normalize_url
+from pipeline.url_utils import normalize_url, url_to_slug
 
 SCORES_DIR = ROOT / "data" / "scores"
 AI_READINESS_FILE = SCORES_DIR / "ai_readiness_scores.json"
 RETRIEVABILITY_FILE = SCORES_DIR / "retrievability_scores.json"
 DEFAULT_OUTPUT = ROOT / "data" / "enriched_report.csv"
+CACHE_DIR = ROOT / "data" / "cache"
+PRUNE_LOG = ROOT / "data" / "logs" / "pruned_rows.csv"
+PRUNE_LOG_FIELDS = ["timestamp", "url", "reason", "platform", "date", "input_file"]
+
+
+def _backfill_titles_from_cache(df: pd.DataFrame) -> int:
+    """Fill empty Title values from data/cache/<slug>.txt (first '#' heading).
+
+    Mirrors the in-memory backfill in app.py:100-123 so the pipeline persists
+    whatever the cache can recover, leaving only the truly-missing rows to be
+    pruned. Returns the number of rows filled.
+    """
+    if not CACHE_DIR.exists() or "Title" not in df.columns or "Url" not in df.columns:
+        return 0
+
+    missing_mask = df["Title"].isna() | (df["Title"].astype(str).str.strip() == "")
+    filled = 0
+    for idx in df[missing_mask].index:
+        url = df.at[idx, "Url"]
+        if not isinstance(url, str):
+            continue
+        try:
+            slug = url_to_slug(url)
+        except Exception:
+            continue
+        cache_file = CACHE_DIR / f"{slug}.txt"
+        if not cache_file.exists():
+            continue
+        first_line = cache_file.read_text(encoding="utf-8").split("\n")[0].strip()
+        m = re.match(r"^#+\s+(.*)", first_line)
+        if m:
+            title = m.group(1).strip()
+            df.at[idx, "Title"] = title
+            if "Title_Normalized" in df.columns:
+                df.at[idx, "Title_Normalized"] = title
+            filled += 1
+    return filled
+
+
+def _append_prune_log(rows: pd.DataFrame, reason: str) -> None:
+    """Append excluded rows to data/logs/pruned_rows.csv (creates file+header if missing)."""
+    if rows.empty:
+        return
+    PRUNE_LOG.parent.mkdir(parents=True, exist_ok=True)
+    is_new = not PRUNE_LOG.exists()
+    ts = datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+    def _val(r, key, default=""):
+        v = r.get(key, default)
+        return "" if pd.isna(v) else v
+
+    with PRUNE_LOG.open("a", encoding="utf-8", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=PRUNE_LOG_FIELDS)
+        if is_new:
+            writer.writeheader()
+        for _, r in rows.iterrows():
+            writer.writerow({
+                "timestamp": ts,
+                "url": _val(r, "Url"),
+                "reason": reason,
+                "platform": _val(r, "Platform"),
+                "date": _val(r, "Date"),
+                "input_file": _val(r, "InputFile"),
+            })
+
+
+def _coalesce_freshness(df: pd.DataFrame) -> pd.Series:
+    """LMC 'Freshness' fallback to SMC 'FreshNess' (capital N) — matches app.py:146."""
+    has_l = "Freshness" in df.columns
+    has_s = "FreshNess" in df.columns
+    if has_l and has_s:
+        return df["Freshness"].fillna(df["FreshNess"])
+    if has_l:
+        return df["Freshness"]
+    if has_s:
+        return df["FreshNess"]
+    return pd.Series([None] * len(df), index=df.index)
 
 
 def load_ai_readiness(path: Path) -> pd.DataFrame:
@@ -101,6 +181,32 @@ def build_enriched_csv(
         result["Retrievability_Retrieved"] = None
         result["Retrievability_Total"] = None
 
+    # Backfill titles from cached article text before deciding what to prune.
+    filled = _backfill_titles_from_cache(result)
+    if filled:
+        print(f"Backfilled {filled} missing Title(s) from cache")
+
+    # Prune rows still missing Title; record them in the audit log.
+    title_missing_mask = result["Title"].isna() | (
+        result["Title"].astype(str).str.strip() == ""
+    )
+    dropped_title = result[title_missing_mask]
+    if not dropped_title.empty:
+        _append_prune_log(dropped_title, "missing_title")
+        print(f"Pruned {len(dropped_title)} row(s) with missing Title")
+    result = result[~title_missing_mask].copy()
+
+    # Prune rows missing Freshness (coalesced LMC Freshness / SMC FreshNess).
+    freshness_series = _coalesce_freshness(result)
+    freshness_missing_mask = freshness_series.isna() | (
+        freshness_series.astype(str).str.strip() == ""
+    )
+    dropped_freshness = result[freshness_missing_mask]
+    if not dropped_freshness.empty:
+        _append_prune_log(dropped_freshness, "missing_freshness")
+        print(f"Pruned {len(dropped_freshness)} row(s) with missing Freshness")
+    result = result[~freshness_missing_mask].copy()
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(output_path, index=False)
     return output_path
@@ -120,67 +226,29 @@ def main() -> None:
                         help="Output enriched CSV path")
     args = parser.parse_args()
 
-    df = load_engagement_csvs(args.input)
-    if "Url" not in df.columns:
-        print("Error: combined engagement data does not contain a Url column")
-        sys.exit(1)
-    print(f"Loaded {len(df)} rows from {len(args.input)} input file(s)")
-
-    df["Url"] = df["Url"].map(normalize_url)
-
-    # Load scores
-    ai_df = load_ai_readiness(Path(args.ai_readiness))
-    if not ai_df.empty:
-        ai_df["Url"] = ai_df["Url"].map(normalize_url)
-    retr_df = load_retrievability(Path(args.retrievability))
-    if not retr_df.empty:
-        retr_df["Url"] = retr_df["Url"].map(normalize_url)
-
-    # Merge on URL (left join to keep all rows from the original CSV)
-    result = df.copy()
-
-    if not ai_df.empty:
-        result = result.merge(
-            ai_df,
-            on="Url",
-            how="left",
-        )
-    else:
-        result["AIReadiness"] = None
-        result["AIReadiness_WeakestDim"] = None
-        result["AIReadiness_TotalRecs"] = None
-
-    if not retr_df.empty:
-        result = result.merge(
-            retr_df,
-            on="Url",
-            how="left",
-        )
-    else:
-        result["Retrievability"] = None
-        result["Retrievability_Retrieved"] = None
-        result["Retrievability_Total"] = None
-
-    # Summary
-    total = len(result)
-    ai_scored = result["AIReadiness"].notna().sum()
-    retr_scored = result["Retrievability"].notna().sum()
+    output_path = build_enriched_csv(
+        input_paths=args.input,
+        output_path=Path(args.output),
+        ai_readiness_path=Path(args.ai_readiness),
+        retrievability_path=Path(args.retrievability),
+    )
+    final = pd.read_csv(output_path)
+    total = len(final)
+    ai_scored = final["AIReadiness"].notna().sum() if "AIReadiness" in final.columns else 0
+    retr_scored = final["Retrievability"].notna().sum() if "Retrievability" in final.columns else 0
     print(f"\nMerge summary:")
-    print(f"  Total rows:              {total}")
+    print(f"  Kept rows:               {total}")
     print(f"  AI Readiness scored:     {ai_scored}/{total}")
     print(f"  Retrievability scored:   {retr_scored}/{total}")
     if ai_scored > 0:
-        band_counts = result["AIReadiness"].value_counts().to_dict()
+        band_counts = final["AIReadiness"].value_counts().to_dict()
         print(f"  AI Readiness bands:      {band_counts}")
     if retr_scored > 0:
-        print(f"  Retrievability mean:     {result['Retrievability'].mean():.1f}")
-        print(f"  Retrievability median:   {result['Retrievability'].median():.1f}")
-
-    # Save output
-    output_path = Path(args.output)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    result.to_csv(output_path, index=False)
+        print(f"  Retrievability mean:     {final['Retrievability'].mean():.1f}")
+        print(f"  Retrievability median:   {final['Retrievability'].median():.1f}")
     print(f"\nSaved enriched report -> {output_path}")
+    if PRUNE_LOG.exists():
+        print(f"Prune log -> {PRUNE_LOG}")
 
 
 if __name__ == "__main__":
